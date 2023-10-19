@@ -8,7 +8,7 @@ public class Paddle : MonoBehaviour
 
     public float speed = 10;
     float horizontal_input;
-    public float x_boundry =9.5f;
+    public float x_boundry = 8.15f;
     float x_velocity;
     Vector3 direction;
 
