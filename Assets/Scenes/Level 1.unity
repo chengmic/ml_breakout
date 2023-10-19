@@ -1371,8 +1371,8 @@ Transform:
   m_GameObject: {fileID: 352277829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -5.31, z: 0}
-  m_LocalScale: {x: 18.192785, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0.0121, y: -5.31, z: 0}
+  m_LocalScale: {x: 18.428173, y: 0.6, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  x_boundry: 9.7
+  x_boundry: 8.12
 --- !u!60 &529931952
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3747,10 +3747,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -9.090168, y: -5.003828}
-  - {x: -9.092613, y: 5.004353}
-  - {x: 9.086832, y: 5.012066}
-  - {x: 9.08864, y: -5.01808}
+  - {x: -9.175637, y: -4.982461}
+  - {x: -9.178083, y: 5.004353}
+  - {x: 9.172227, y: 4.991137}
+  - {x: 9.17411, y: -4.996489}
   m_AdjacentStartPoint: {x: 10.8, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -4470,7 +4470,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1292775425}
-  - component: {fileID: 1292775426}
   m_Layer: 0
   m_Name: Bricks
   m_TagString: Untagged
@@ -4500,21 +4499,6 @@ Transform:
   - {fileID: 1472815304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1292775426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292775423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b8d3c568942e94194335d9ae57835b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  num_of_bricks_x: 20
-  num_of_bricks_y: 8
-  brick_prefab: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
 --- !u!4 &1306273505 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
