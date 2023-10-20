@@ -15,6 +15,7 @@ public class PauseGame : MonoBehaviour
     void Start()
     {
         pause_overlay.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
