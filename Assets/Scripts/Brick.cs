@@ -28,8 +28,10 @@ public class Brick : MonoBehaviour
         // destory brick
         if (collision.gameObject.CompareTag("Ball"))
         {
+
             Destroy(this.gameObject);
             gamemgr.changeScore(100);
+            gamemgr.reduce_brick_count();
         }
     }
 }

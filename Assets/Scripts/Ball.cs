@@ -21,6 +21,10 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.bricks_remaining <= 60) {
+            this.gameObject.SetActive(false);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -28,9 +32,19 @@ public class Ball : MonoBehaviour
         // when ball collides with lower bound, lose life and respawn ball at starting position
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
+            gameManager.changeLives(-1);
+
+            if (gameManager.lives_val <= 0)
+            {
+                rb.velocity = Vector2.zero;
+                this.gameObject.SetActive(false);
+                
+                return;
+            }
+
             transform.position = Vector3.zero;
             rb.velocity = Vector2.down * 10.0f;
-            gameManager.changeLives(-1);
+            
         }
     }
 }

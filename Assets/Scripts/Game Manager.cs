@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class GameManager : MonoBehaviour
     public int score_val;
     public TextMeshProUGUI lives_text;
     public TextMeshProUGUI score_text;
+    public GameObject lost_game_panel;
+    public GameObject won_game_panel;
+    public int total_bricks;
+    public int bricks_remaining;
+
 
 
 
@@ -17,6 +23,9 @@ public class GameManager : MonoBehaviour
     {
         display_score();
         display_lives();
+
+        total_bricks = FindObjectsOfType<Brick>().Length;
+        bricks_remaining = total_bricks;
 
     }
 
@@ -40,6 +49,11 @@ public class GameManager : MonoBehaviour
     {
         lives_val += life_change;
 
+        if (lives_val <= 0) {
+            SceneManager.LoadScene("Game Over Screen");
+
+        }
+
         display_lives();
     }
 
@@ -48,6 +62,18 @@ public class GameManager : MonoBehaviour
         display_score();
     }
 
+    public void reduce_brick_count() {
+        bricks_remaining -= 1;
+
+        if (bricks_remaining <= 60) {
+            SceneManager.LoadScene("Win Screen");
+
+        }
+    }
+
+    public void load_level_1(){
+        SceneManager.LoadScene("Level 1");
+    }
 
 
 }
