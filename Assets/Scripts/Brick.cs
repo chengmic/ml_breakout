@@ -7,6 +7,7 @@ public class Brick : MonoBehaviour
 {
     public GameManager gamemgr;
 
+<<<<<<< Updated upstream
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class Brick : MonoBehaviour
         
     }
 
+=======
+>>>>>>> Stashed changes
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // destory brick

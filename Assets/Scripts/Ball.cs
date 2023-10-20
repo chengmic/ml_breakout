@@ -7,7 +7,12 @@ public class Ball : MonoBehaviour
 {
     public float min_y_boundary = -5.0f;
     Rigidbody2D rb;
+<<<<<<< Updated upstream
     public GameManager gameManager;
+=======
+    public int lives = 3;
+    [SerializeField] private Transform paddle;
+>>>>>>> Stashed changes
 
 
     // Start is called before the first frame update
@@ -32,6 +37,7 @@ public class Ball : MonoBehaviour
         // when ball collides with lower bound, lose life and respawn ball at starting position
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
+<<<<<<< Updated upstream
             gameManager.changeLives(-1);
 
             if (gameManager.lives_val <= 0)
@@ -45,6 +51,11 @@ public class Ball : MonoBehaviour
             transform.position = Vector3.zero;
             rb.velocity = Vector2.down * 10.0f;
             
+=======
+            transform.position = paddle.position + new Vector3(0, 0.5f, 0);
+            //rb.velocity = Vector2.down * 10.0f;
+            lives -= 1;
+>>>>>>> Stashed changes
         }
     }
 }

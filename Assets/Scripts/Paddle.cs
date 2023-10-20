@@ -14,11 +14,6 @@ public class Paddle : MonoBehaviour
     Vector3 direction;
     public GameManager gameManager;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
     void FixedUpdate()          // FixedUpdate() used to make paddle movement more constant
     {
