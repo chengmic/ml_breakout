@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     public float min_y_boundary = -5.0f;
     Rigidbody2D rb;
     public GameManager gameManager;
+    [SerializeField] private Transform paddle;
+
 
 
     // Start is called before the first frame update
@@ -42,9 +44,7 @@ public class Ball : MonoBehaviour
                 return;
             }
 
-            transform.position = Vector3.zero;
-            rb.velocity = Vector2.down * 10.0f;
-            
+            transform.position = paddle.position + new Vector3(0, 0.5f, 0);;
         }
     }
 }

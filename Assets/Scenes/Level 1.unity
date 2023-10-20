@@ -2229,7 +2229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  x_boundry: 8.12
+  x_boundry: 8.15
   gameManager: {fileID: 218426384}
 --- !u!60 &529931952
 PolygonCollider2D:
@@ -3360,6 +3360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min_y_boundary: -5
   gameManager: {fileID: 218426384}
+  paddle: {fileID: 529931950}
 --- !u!1 &777995033
 GameObject:
   m_ObjectHideFlags: 0
