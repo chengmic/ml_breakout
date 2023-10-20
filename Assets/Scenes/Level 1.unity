@@ -598,6 +598,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+--- !u!1 &218426383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218426385}
+  - component: {fileID: 218426384}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &218426384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218426383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee01a155f45f48cc81ffc825f4bb154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives_val: 3
+  score_val: 0
+  lives_text: {fileID: 1005478473}
+  score_text: {fileID: 614909308}
+  lost_game_panel: {fileID: 0}
+  won_game_panel: {fileID: 0}
+  total_bricks: 0
+  bricks_remaining: 0
+--- !u!4 &218426385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218426383}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 436.14062, y: 196.25499, z: -3.1604571}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &222717617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2178,6 +2230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   x_boundry: 8.12
+  gameManager: {fileID: 218426384}
 --- !u!60 &529931952
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3306,7 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   min_y_boundary: -5
-  lives: 3
+  gameManager: {fileID: 218426384}
 --- !u!1 &777995033
 GameObject:
   m_ObjectHideFlags: 0
@@ -7309,3 +7362,4 @@ SceneRoots:
   - {fileID: 1710869605}
   - {fileID: 568489549}
   - {fileID: 1533627906}
+  - {fileID: 218426385}

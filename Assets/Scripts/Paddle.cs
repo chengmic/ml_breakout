@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents.Integrations.Match3;
@@ -11,6 +12,7 @@ public class Paddle : MonoBehaviour
     public float x_boundry = 8.15f;
     float x_velocity;
     Vector3 direction;
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,10 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()          // FixedUpdate() used to make paddle movement more constant
     {
+        if (gameManager.lives_val <= 0 || gameManager.bricks_remaining <=60) {
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            return;
+        }
         // move paddle
         horizontal_input = Input.GetAxis("Horizontal");
         if (horizontal_input < 0)
