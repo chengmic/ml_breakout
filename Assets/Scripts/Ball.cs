@@ -5,9 +5,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
-    public float min_y_boundary =-5.0f;
+    public float min_y_boundary = -5.0f;
     Rigidbody2D rb;
-    public int lives = 3;
+    public GameManager gameManager;
 
 
     // Start is called before the first frame update
@@ -21,10 +21,6 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lives <= 0)
-        {
-            // HANDLE GAME OVER
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,7 +30,7 @@ public class Ball : MonoBehaviour
         {
             transform.position = Vector3.zero;
             rb.velocity = Vector2.down * 10.0f;
-            lives -= 1;
+            gameManager.changeLives(-1);
         }
     }
 }
