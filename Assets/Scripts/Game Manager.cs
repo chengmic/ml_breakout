@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     public void reduce_brick_count() {
         bricks_remaining -= 1;
 
-        if (bricks_remaining <= 60) {
+        if (bricks_remaining == 0) {
             SceneManager.LoadScene("Win Screen");
 
         }
