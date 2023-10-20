@@ -9,7 +9,6 @@ public class PauseGame : MonoBehaviour
     public GameObject pause_overlay;
     public GameObject game_ui;
     private bool paused = false;
-
     
     // Start is called before the first frame update
     void Start()
@@ -32,7 +31,6 @@ public class PauseGame : MonoBehaviour
             {
                 ResumeGame();
             }
-            
         }
     }
 

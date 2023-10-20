@@ -17,18 +17,11 @@ public class Brick : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // destory brick
         if (collision.gameObject.CompareTag("Ball"))
         {
-
             Destroy(this.gameObject);
             gamemgr.changeScore(100);
             gamemgr.reduce_brick_count();

@@ -5,12 +5,9 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Ball : MonoBehaviour
 {
-    public float min_y_boundary = -5.0f;
     Rigidbody2D rb;
     public GameManager gameManager;
     [SerializeField] private Transform paddle;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -23,10 +20,9 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.bricks_remaining <= 60) {
+        if (gameManager.bricks_remaining == 0) {
             this.gameObject.SetActive(false);
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,7 +39,7 @@ public class Ball : MonoBehaviour
                 
                 return;
             }
-
+            // moves ball position above paddle when a new ball spawns
             transform.position = paddle.position + new Vector3(0, 0.5f, 0);;
         }
     }
