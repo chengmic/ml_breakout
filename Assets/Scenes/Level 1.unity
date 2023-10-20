@@ -2229,12 +2229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-<<<<<<< Updated upstream
-  x_boundry: 8.12
-  gameManager: {fileID: 218426384}
-=======
   x_boundry: 8.15
->>>>>>> Stashed changes
+  gameManager: {fileID: 218426384}
 --- !u!60 &529931952
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3363,12 +3359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   min_y_boundary: -5
-<<<<<<< Updated upstream
   gameManager: {fileID: 218426384}
-=======
-  lives: 3
   paddle: {fileID: 529931950}
->>>>>>> Stashed changes
 --- !u!1 &777995033
 GameObject:
   m_ObjectHideFlags: 0
