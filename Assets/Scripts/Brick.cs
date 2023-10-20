@@ -14,7 +14,7 @@ public class Brick : MonoBehaviour
         {
             gamemgr = FindObjectOfType<GameManager>();
         }
-
+        
     }
 
     // Update is called once per frame
