@@ -14,7 +14,6 @@ public class Brick : MonoBehaviour
         {
             gamemgr = FindObjectOfType<GameManager>();
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
     public int total_bricks;
     public int bricks_remaining;
 
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +23,6 @@ public class GameManager : MonoBehaviour
 
         total_bricks = FindObjectsOfType<Brick>().Length;
         bricks_remaining = total_bricks;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void display_lives()
@@ -53,7 +43,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Game Over Screen");
 
         }
-
+        
         display_lives();
     }
 
@@ -67,13 +57,10 @@ public class GameManager : MonoBehaviour
 
         if (bricks_remaining == 0) {
             SceneManager.LoadScene("Win Screen");
-
         }
     }
 
     public void load_level_1(){
         SceneManager.LoadScene("Level 1");
     }
-
-
 }
