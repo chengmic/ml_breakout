@@ -18,41 +18,42 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        display_score();
-        display_lives();
+        DisplayScore();
+        DisplayLives();
 
         total_bricks = FindObjectsOfType<Brick>().Length;
         bricks_remaining = total_bricks;
     }
 
-    public void display_lives()
+    public void DisplayLives()
     {
         lives_text.text = "Lives: " + lives_val;
     }
 
-    public void display_score()
+    public void DisplayScore()
     {
         score_text.text = "Score: " + score_val;
     }
 
-    public void changeLives(int life_change)
+    public void ChangeLives(int life_change)
     {
         lives_val += life_change;
 
         if (lives_val <= 0) {
             SceneManager.LoadScene("Game Over Screen");
-
         }
         
-        display_lives();
+        DisplayLives();
     }
 
-    public void changeScore(int score_change) {
+    public void ChangeScore(int score_change)
+    {
         score_val += score_change;
-        display_score();
+        DisplayScore();
     }
 
-    public void reduce_brick_count() {
+    public void ReduceBrickCount()
+    {
         bricks_remaining -= 1;
 
         if (bricks_remaining == 0) {
@@ -60,7 +61,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void load_level_1(){
+    public void load_level_1()
+    {
         SceneManager.LoadScene("Level 1");
     }
 }
