@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Ball : MonoBehaviour
 {
     Rigidbody2D rb;
-    public GameManager gameManager;
+    public GameManager game_manager;
     [SerializeField] private Transform paddle;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.bricks_remaining == 0) {
+        if (game_manager.bricks_remaining == 0) {
             this.gameObject.SetActive(false);
         }
     }
@@ -30,9 +30,9 @@ public class Ball : MonoBehaviour
         // when ball collides with lower bound, lose life and respawn ball at starting position
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
-            gameManager.changeLives(-1);
+            game_manager.ChangeLives(-1);
 
-            if (gameManager.lives_val <= 0)
+            if (game_manager.lives_val <= 0)
             {
                 rb.velocity = Vector2.zero;
                 this.gameObject.SetActive(false);
@@ -40,7 +40,7 @@ public class Ball : MonoBehaviour
                 return;
             }
             // moves ball position above paddle when a new ball spawns
-            transform.position = paddle.position + new Vector3(0, 0.5f, 0);;
+            transform.position = paddle.position + new Vector3(0, 0.5f, 0);
         }
     }
 }

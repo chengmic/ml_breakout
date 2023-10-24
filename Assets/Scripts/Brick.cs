@@ -5,14 +5,14 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Brick : MonoBehaviour
 {
-    public GameManager gamemgr;
+    public GameManager game_manager;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (gamemgr == null)
+        if (game_manager == null)
         {
-            gamemgr = FindObjectOfType<GameManager>();
+            game_manager = FindObjectOfType<GameManager>();
         }
     }
 
@@ -22,8 +22,8 @@ public class Brick : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             Destroy(this.gameObject);
-            gamemgr.changeScore(100);
-            gamemgr.reduce_brick_count();
+            game_manager.ChangeScore(100);
+            game_manager.ReduceBrickCount();
         }
     }
 }
