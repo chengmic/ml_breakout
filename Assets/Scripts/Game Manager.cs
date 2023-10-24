@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void load_level_1()
+    public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
     }
