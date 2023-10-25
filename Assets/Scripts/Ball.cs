@@ -8,13 +8,14 @@ public class Ball : MonoBehaviour
     Rigidbody2D rb;
     public GameManager game_manager;
     [SerializeField] private Transform paddle;
+    public float ball_speed = 6.7f;
 
     // Start is called before the first frame update
     void Start()
     {
         // start ball in downard direction
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.down * 10.0f;
+        rb.velocity = Vector2.down * ball_speed;
     }
 
     // Update is called once per frame
