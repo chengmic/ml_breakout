@@ -7,7 +7,8 @@ public class Paddle : MonoBehaviour
 {
     public float speed = 10;
     float horizontal_input;
-    public float x_boundary = 3.6f;
+    public float left_x_bound = -3.6f;
+    public float right_x_bound = 3.6f;
     float x_velocity;
     Vector3 direction;
     public GameManager game_manager;
@@ -32,7 +33,7 @@ public class Paddle : MonoBehaviour
 
         x_velocity = Mathf.Abs(horizontal_input) * speed;
         Vector3 new_position = transform.position + direction * x_velocity * Time.deltaTime;
-        new_position.x = Mathf.Clamp(new_position.x, -x_boundary, x_boundary);        // handle paddle boundaries
+        new_position.x = Mathf.Clamp(new_position.x, left_x_bound, right_x_bound);        // handle paddle boundaries
         transform.position = new_position;
     }
 }
