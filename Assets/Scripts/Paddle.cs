@@ -7,13 +7,13 @@ public class Paddle : MonoBehaviour
 {
     public float speed = 10;
     float horizontal_input;
-    public float x_boundary = 8.15f;
+    public float x_boundary = 3.6f;
     float x_velocity;
     Vector3 direction;
     public GameManager game_manager;
 
     // Update is called once per frame
-    void FixedUpdate()          // FixedUpdate() used to make paddle movement more constant
+    void Update() 
     {
         if (game_manager.lives_val <= 0 || game_manager.bricks_remaining == 0) {
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
