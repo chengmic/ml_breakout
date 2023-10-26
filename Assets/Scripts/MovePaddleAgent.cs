@@ -4,15 +4,14 @@ using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using Vector3 = UnityEngine.Vector3;
+using Vector2 = UnityEngine.Vector2;
 
 public class MovePaddleAgent : Agent
 {
     [SerializeField] private Transform ball;
-
-    public override void OnEpisodeBegin()
-    {
-        transform.position = new Vector3(0, -3.7356f);
-    }
+    public float left_x_bound = -3.6f;
+    public float right_x_bound = 3.6f;
 
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -26,6 +25,11 @@ public class MovePaddleAgent : Agent
         float speed = 10f;
 
         transform.position += new Vector3(move_x, 0f) * Time.deltaTime * speed;
+        
+        // handles paddle boundaries without needing a rigidbody, can probably be cleaned up to be less lines
+        Vector3 new_position = transform.position;
+        new_position.x = Mathf.Clamp(new_position.x, left_x_bound, right_x_bound);
+        transform.position = new_position;
     }
 
     // this is for when the user controls the paddle
