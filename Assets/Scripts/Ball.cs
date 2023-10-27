@@ -30,11 +30,12 @@ public class Ball : MonoBehaviour
         if (game_manager.bricks_remaining == 0) {
             this.gameObject.SetActive(false);
         }
-
         if (ball_in_play ==  false){
+            // If ball is not in play, reset its position to ontop of the paddle
             transform.position = paddle.position + new Vector3(0, 0.3f, 0);
             
             if (Input.GetButtonDown("Jump")){
+                // When user presses spacebar, send ball upwards from paddle
                 rb.velocity = Vector2.up * ball_speed;
                 ball_in_play = true;
 
@@ -57,7 +58,7 @@ public class Ball : MonoBehaviour
                 
                 return;
             }
-            // moves ball position above paddle when a new ball spawns
+            // Sets in play to false with resets the ball on top of the paddle
             ball_in_play = false;
         }
     }
