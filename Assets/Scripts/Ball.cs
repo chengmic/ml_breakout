@@ -10,15 +10,15 @@ public class Ball : MonoBehaviour
     [SerializeField] private Transform paddle;
     public float ball_speed = 6.7f;
 
-    private bool ball_in_play = false;
+    public bool ball_in_play = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        // start ball in downard direction
+        // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-        transform.position = paddle.position + new Vector3(0, 0.5f, 0);
+        transform.position = paddle.position + new Vector3(0, 0.3f, 0);
 
 
 
@@ -27,14 +27,18 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (game_manager.bricks_remaining == 0) {
+        if (game_manager.bricks_remaining == 0)
+        {
             this.gameObject.SetActive(false);
         }
-        if (ball_in_play ==  false){
+
+        if (ball_in_play == false)
+        {
             // If ball is not in play, reset its position to ontop of the paddle
             transform.position = paddle.position + new Vector3(0, 0.3f, 0);
-            
-            if (Input.GetButtonDown("Jump")){
+
+            if (Input.GetButtonDown("Jump"))
+            {
                 // When user presses spacebar, send ball upwards from paddle
                 rb.velocity = Vector2.up * ball_speed;
                 ball_in_play = true;
@@ -55,7 +59,7 @@ public class Ball : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
                 this.gameObject.SetActive(false);
-                
+
                 return;
             }
             // Sets in play to false with resets the ball on top of the paddle

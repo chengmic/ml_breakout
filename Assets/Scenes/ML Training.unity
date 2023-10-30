@@ -1918,9 +1918,9 @@ MonoBehaviour:
     VectorObservationSize: 4
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 0
-      BranchSizes: 01000000
-    VectorActionSize: 01000000
+      m_NumContinuousActions: 1
+      BranchSizes: 02000000
+    VectorActionSize: 
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
@@ -1947,10 +1947,11 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  ball: {fileID: 0}
+  MaxStep: 500
+  ball: {fileID: 1796864522}
   left_x_bound: -3.6
   right_x_bound: 3.6
+  ball_speed: 6.7
 --- !u!60 &783394977
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -5276,6 +5277,7 @@ MonoBehaviour:
   game_manager: {fileID: 1821877851}
   paddle: {fileID: 783394973}
   ball_speed: 6.7
+  ball_in_play: 0
 --- !u!58 &1796864525
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5419,7 +5421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee01a155f45f48cc81ffc825f4bb154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives_val: 10
+  lives_val: 10000
   score_val: 0
   lives_text: {fileID: 821054074}
   score_text: {fileID: 532313845}
