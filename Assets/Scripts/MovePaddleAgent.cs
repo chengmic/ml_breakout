@@ -12,6 +12,7 @@ using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 public class MovePaddleAgent : Agent
 {
     public GameObject ball;
+    public GameManager gm;
     public float left_x_bound = -3.6f;
     public float right_x_bound = 3.6f;
     public float ball_speed = 6.7f;
@@ -65,7 +66,7 @@ public class MovePaddleAgent : Agent
         continuous_actions[0] = Input.GetAxisRaw("Horizontal");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // small reward for when ball is moving
         // WRITE HERE
@@ -73,22 +74,29 @@ public class MovePaddleAgent : Agent
         // large reward for breaking brick
         if (collision.gameObject.CompareTag("Brick"))
         {
-            AddReward(20f);
+            AddReward(10f);
             Debug.Log("Brick destroyed +20");
         }
 
         // small reward when paddle hits ball
         if (collision.gameObject.CompareTag("Ball"))
         {
-            AddReward(10f);
+            AddReward(5f);
             Debug.Log("Paddle and ball collision +10");
         }
 
         // large penalty for losing ball
-        if (collision.gameObject.CompareTag("LowerBound"))
+        if (collision.gameObject.CompareTag("Lower Bound"))
         {
-            AddReward(-20f);
+            AddReward(-10f);
             Debug.Log("Lower bound hit -10");
+        }
+
+        // large reward for winning
+        if (gm.bricks_remaining == 0)
+        {
+            AddReward(20f);
+            Debug.Log("Win! + 20");
         }
     }
 }
