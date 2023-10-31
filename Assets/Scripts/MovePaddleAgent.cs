@@ -9,8 +9,8 @@ using Vector2 = UnityEngine.Vector2;
 
 public class MovePaddleAgent : Agent
 {
-    //[SerializeField] private Transform ball;
     public Ball ball;
+    public GameManager gm;
     public float left_x_bound = -3.6f;
     public float right_x_bound = 3.6f;
 
@@ -60,11 +60,37 @@ public class MovePaddleAgent : Agent
     }
 
     // change from trigger to collision
-    private void OnCollisionEnter2D(Collision2D collision) 
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        // small reward for when ball is moving
+        // WRITE HERE
+
+        // large reward for breaking brick
+        if (collision.gameObject.CompareTag("Brick"))
         {
             AddReward(10f);
+            Debug.Log("Brick destroyed +20");
+        }
+
+        // small reward when paddle hits ball
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            AddReward(5f);
+            Debug.Log("Paddle and ball collision +10");
+        }
+
+        // large penalty for losing ball
+        if (collision.gameObject.CompareTag("Lower Bound"))
+        {
+            AddReward(-10f);
+            Debug.Log("Lower bound hit -10");
+        }
+
+        // large reward for winning
+        if (gm.bricks_remaining == 0)
+        {
+            AddReward(20f);
+            Debug.Log("Win! + 20");
         }
     }
 }

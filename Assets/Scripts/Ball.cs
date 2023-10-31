@@ -14,10 +14,10 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // start ball in downard direction
+        // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-        transform.position = paddle.position + new Vector3(0, 0.5f, 0);
+        transform.position = paddle.position + new Vector3(0, 0.3f, 0);
     }
 
     // Update is called once per frame
