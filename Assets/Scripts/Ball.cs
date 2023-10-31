@@ -9,8 +9,7 @@ public class Ball : MonoBehaviour
     public GameManager game_manager;
     [SerializeField] private Transform paddle;
     public float ball_speed = 6.7f;
-
-    private bool ball_in_play = false;
+    public bool ball_in_play = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +18,6 @@ public class Ball : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         transform.position = paddle.position + new Vector3(0, 0.5f, 0);
-
-
-
     }
 
     // Update is called once per frame
@@ -38,10 +34,13 @@ public class Ball : MonoBehaviour
                 // When user presses spacebar, send ball upwards from paddle
                 rb.velocity = Vector2.up * ball_speed;
                 ball_in_play = true;
-
             }
-
         }
+    }
+
+    public void Launch()
+    {
+        rb.velocity = Vector2.up * ball_speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
