@@ -60,7 +60,7 @@ public override void CollectObservations(VectorSensor sensor)
 
     public void ballStillMoving(){
         AddReward(1f);
-        Debug.Log("Ball Moving, +1");
+        //Debug.Log("Ball Moving, +1");
 
     }
 
@@ -95,7 +95,7 @@ public override void CollectObservations(VectorSensor sensor)
 
         if (!ball.ball_in_play)
         {
-            Debug.Log("held ball, -2");
+            //Debug.Log("held ball, -2");
             AddReward(-2f);
         }
     }
