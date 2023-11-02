@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee01a155f45f48cc81ffc825f4bb154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives_val: 10
+  lives_val: 10000
   score_val: 0
   lives_text: {fileID: 1005478473}
   score_text: {fileID: 614909308}
@@ -2191,6 +2191,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   ball: {fileID: 750203925}
+  gm: {fileID: 218426384}
   left_x_bound: -3.6
   right_x_bound: 3.6
   ball_speed: 6.7
@@ -2207,7 +2208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 5
+    VectorObservationSize: 6
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 1
@@ -2953,6 +2954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_manager: {fileID: 218426384}
+  paddleAgent: {fileID: 1143071467}
   paddle: {fileID: 529931950}
   ball_speed: 6.7
   ball_in_play: 0
@@ -3979,7 +3981,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139432623}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1 &1143071466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4064,8 +4065,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 58821ac932b4277f6de8f9ec204b3cc48ebf9fb8
 --- !u!4 &1143200424 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -6196,3 +6195,4 @@ SceneRoots:
   - {fileID: 568489549}
   - {fileID: 1533627906}
   - {fileID: 218426385}
+  - {fileID: 1143071469}

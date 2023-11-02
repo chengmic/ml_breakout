@@ -19,15 +19,21 @@ public class MovePaddleAgent : Agent
     public float right_x_bound = 3.6f;
     public float ball_speed = 6.7f;
 
-    public override void CollectObservations(VectorSensor sensor)
+public override void CollectObservations(VectorSensor sensor)
+{
+    bool isGameOver = gm.lives_val <= 0 || gm.bricks_remaining == 0;
+
+    // Add a boolean flag indicating whether the game is over
+    sensor.AddObservation(isGameOver);
+    
+    if (!isGameOver)
     {
+        // Only add these observations if the game is not over
         sensor.AddObservation((Vector2)transform.position);
         sensor.AddObservation((Vector2)ball.transform.position);
-
         sensor.AddObservation(ball.ball_in_play);
 
     }
-<<<<<<< HEAD
     else
     {
         // Add placeholder values if the game is over
@@ -57,8 +63,6 @@ public class MovePaddleAgent : Agent
         //Debug.Log("Ball Moving, +1");
 
     }
-=======
->>>>>>> 58821ac932b4277f6de8f9ec204b3cc48ebf9fb8
 
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -91,11 +95,7 @@ public class MovePaddleAgent : Agent
 
         if (!ball.ball_in_play)
         {
-<<<<<<< HEAD
             //Debug.Log("held ball, -2");
-=======
-            Debug.Log("held ball");
->>>>>>> 58821ac932b4277f6de8f9ec204b3cc48ebf9fb8
             AddReward(-2f);
         }
     }
@@ -120,14 +120,14 @@ public class MovePaddleAgent : Agent
         if (collision.gameObject.CompareTag("Brick"))
         {
             AddReward(10f);
-            Debug.Log("Brick destroyed +20");
+            Debug.Log("Brick destroyed +10");
         }
 
         // small reward when paddle hits ball
         if (collision.gameObject.CompareTag("Ball"))
         {
             AddReward(5f);
-            Debug.Log("Paddle and ball collision +10");
+            Debug.Log("Paddle and ball collision +5");
         }
 
         // large penalty for losing ball
