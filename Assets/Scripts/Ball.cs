@@ -7,7 +7,6 @@ public class Ball : MonoBehaviour
 {
     Rigidbody2D rb;
     public GameManager game_manager;
-    public MovePaddleAgent paddleAgent;
     [SerializeField] private Transform paddle;
     public float ball_speed = 6.7f;
     public bool ball_in_play = false;
@@ -24,6 +23,9 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (game_manager.bricks_remaining == 0) {
+            this.gameObject.SetActive(false);
+        }
         if (ball_in_play ==  false){
             // If ball is not in play, reset its position to ontop of the paddle
             transform.position = paddle.position + new Vector3(0, 0.3f, 0);
@@ -34,13 +36,6 @@ public class Ball : MonoBehaviour
                 ball_in_play = true;
             }
         }
-        else{
-            // If ball is in play, check vertical speed. If ball is in motion, provide small reward
-            float ball_vertical_velocity = rb.velocity.y;
-            if(ball_vertical_velocity != 0f){
-                paddleAgent.ballStillMoving();
-                }
-                }
     }
 
     public void Launch()
@@ -54,11 +49,11 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
             game_manager.ChangeLives(-1);
-            paddleAgent.ballBelowPaddle();
 
             if (game_manager.lives_val <= 0)
             {
                 rb.velocity = Vector2.zero;
+                this.gameObject.SetActive(false);
                 
                 return;
             }
