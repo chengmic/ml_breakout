@@ -2031,6 +2031,8 @@ GameObject:
   - component: {fileID: 529931949}
   - component: {fileID: 529931953}
   - component: {fileID: 529931952}
+  - component: {fileID: 529931954}
+  - component: {fileID: 529931955}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -2168,14 +2170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ceb1319e8d6ae47a40bdf1aaed35a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   speed: 10
   left_x_bound: -3.6
   right_x_bound: 3.6
   game_manager: {fileID: 218426384}
-=======
-  DecisionPeriod: 5
-  TakeActionsBetweenDecisions: 1
 --- !u!114 &529931954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2196,6 +2194,7 @@ MonoBehaviour:
   gm: {fileID: 218426384}
   left_x_bound: -3.6
   right_x_bound: 3.6
+  ball_speed: 6.7
 --- !u!114 &529931955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2226,7 +2225,6 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
->>>>>>> ac
 --- !u!1001 &530994280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4021,6 +4019,7 @@ MonoBehaviour:
   gm: {fileID: 218426384}
   left_x_bound: -3.6
   right_x_bound: 3.6
+  ball_speed: 6.7
 --- !u!114 &1143071468
 MonoBehaviour:
   m_ObjectHideFlags: 0
