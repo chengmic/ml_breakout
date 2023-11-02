@@ -14,13 +14,19 @@ public class GameManager : MonoBehaviour
     public GameObject won_game_panel;
     public int total_bricks;
     public int bricks_remaining;
+    public static string last_level_played;
 
     // Start is called before the first frame update
     void Start()
     {
+        // grab current scene name to be used in "Play Again" button
+        last_level_played = SceneManager.GetActiveScene().name;
+
+        // display score and lives
         DisplayScore();
         DisplayLives();
 
+        // track bricks in level
         total_bricks = FindObjectsOfType<Brick>().Length;
         bricks_remaining = total_bricks;
     }
@@ -64,5 +70,10 @@ public class GameManager : MonoBehaviour
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
+    }
+
+    public void GetCurrentScene()
+    {
+
     }
 }
