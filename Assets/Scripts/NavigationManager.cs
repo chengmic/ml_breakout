@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NavigationManager : MonoBehaviour
 {
+    public int currentLevelIndex;
+
     public void SinglePlayerStart()
     {
         SceneManager.LoadScene("Level 1");
@@ -13,6 +15,11 @@ public class NavigationManager : MonoBehaviour
     public void VersusModeStart()
     {
         SceneManager.LoadScene("Level V1");
+    }
+
+    public void ReplayLevel()
+    {
+        SceneManager.LoadScene($"{GameManager.last_level_played}"); 
     }
 
     public void GoToMainMenu()
