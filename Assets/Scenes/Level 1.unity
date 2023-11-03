@@ -2029,10 +2029,10 @@ GameObject:
   m_Component:
   - component: {fileID: 529931950}
   - component: {fileID: 529931949}
-  - component: {fileID: 529931953}
   - component: {fileID: 529931952}
   - component: {fileID: 529931954}
   - component: {fileID: 529931955}
+  - component: {fileID: 529931956}
   m_Layer: 0
   m_Name: Paddle
   m_TagString: Untagged
@@ -2158,22 +2158,6 @@ PolygonCollider2D:
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.18}
   m_UseDelaunayMesh: 0
---- !u!114 &529931953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 529931948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ceb1319e8d6ae47a40bdf1aaed35a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  left_x_bound: -3.6
-  right_x_bound: 3.6
-  game_manager: {fileID: 218426384}
 --- !u!114 &529931954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2194,7 +2178,6 @@ MonoBehaviour:
   gm: {fileID: 218426384}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  ball_speed: 6.7
 --- !u!114 &529931955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2225,6 +2208,22 @@ MonoBehaviour:
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_ObservableAttributeHandling: 0
+--- !u!114 &529931956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529931948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ceb1319e8d6ae47a40bdf1aaed35a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  left_x_bound: -3.6
+  right_x_bound: 3.6
+  game_manager: {fileID: 218426384}
 --- !u!1001 &530994280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2954,7 +2953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_manager: {fileID: 218426384}
-  paddleAgent: {fileID: 1143071467}
+  paddle_agent: {fileID: 529931954}
   paddle: {fileID: 529931950}
   ball_speed: 6.7
   ball_in_play: 0
@@ -3993,7 +3992,7 @@ GameObject:
   - component: {fileID: 1143071468}
   - component: {fileID: 1143071467}
   m_Layer: 0
-  m_Name: movePaddleAgent
+  m_Name: MovePaddleAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4019,7 +4018,6 @@ MonoBehaviour:
   gm: {fileID: 218426384}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  ball_speed: 6.7
 --- !u!114 &1143071468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5153,7 +5151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1710869602
 MonoBehaviour:
   m_ObjectHideFlags: 0
