@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.MLAgents.Integrations.Match3;
 using UnityEngine;
 
 public class Paddle : MonoBehaviour

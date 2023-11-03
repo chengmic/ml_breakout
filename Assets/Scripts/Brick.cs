@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Brick : MonoBehaviour
 {
     public GameManager game_manager;
-    public MovePaddleAgent paddleAgent;
+    public MovePaddleAgent paddle_agent;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +13,10 @@ public class Brick : MonoBehaviour
             game_manager = FindObjectOfType<GameManager>();
         }
 
-        if (paddleAgent == null)
+        if (paddle_agent == null)
         {
-            paddleAgent = FindObjectOfType<MovePaddleAgent>();
+            paddle_agent = FindObjectOfType<MovePaddleAgent>();
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -32,12 +28,10 @@ public class Brick : MonoBehaviour
             game_manager.ChangeScore(100);
             game_manager.ReduceBrickCount();
 
-
-            paddleAgent.ballHitsBrick();
-            if (game_manager.bricks_remaining==0){
-                paddleAgent.gameWon();
+            paddle_agent.BallHitsBrick();
+            if (game_manager.bricks_remaining == 0){
+                paddle_agent.GameWon();
             }
-
         }
     }
 }

@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class NavigationManager : MonoBehaviour
 {
-    public int currentLevelIndex;
+    public int current_level_index;
 
     public void SinglePlayerStart()
     {
