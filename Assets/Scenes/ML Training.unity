@@ -1952,7 +1952,6 @@ MonoBehaviour:
   gm: {fileID: 1821877851}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  ball_speed: 6.7
 --- !u!60 &783394977
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3727,7 +3726,6 @@ MonoBehaviour:
   gm: {fileID: 1821877851}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  ball_speed: 6.7
 --- !u!114 &1324199489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5360,7 +5358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_manager: {fileID: 1821877851}
-  paddleAgent: {fileID: 1324199488}
+  paddle_agent: {fileID: 1324199488}
   paddle: {fileID: 783394973}
   ball_speed: 6.7
   ball_in_play: 0
