@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 8e99c1be140c46c45ac0907cc042495f
-  - enabled: 0
-    path: Assets/Scenes/Pause Screen.unity
-    guid: 0f3104b493301284d86b459eefe944ca
+  - enabled: 1
+    path: Assets/Scenes/Help Screen.unity
+    guid: a60a27f7ef0fab94b99a624043382b5d
   - enabled: 1
     path: Assets/Scenes/Game Over Screen.unity
     guid: c2e9da1860d8ebc41915434fcc792698
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 62272bd30899a4541a2ff2fc7805220f
+  - enabled: 1
+    path: Assets/Scenes/Level V1.unity
+    guid: 4a33a9cde38e1b54883d1ed7fbfb2f5e
   m_configObjects: {}

@@ -25,6 +25,11 @@ public class NavigationManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void GoToHelpScreen()
+    {
+        SceneManager.LoadScene("Help Screen");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

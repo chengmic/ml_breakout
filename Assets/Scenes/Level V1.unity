@@ -3358,6 +3358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_manager: {fileID: 1227768951}
+  paddleAgent: {fileID: 0}
   paddle: {fileID: 1438518117}
   ball_speed: 6.7
   ball_in_play: 0
@@ -7944,6 +7945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_manager: {fileID: 1227768951}
+  paddleAgent: {fileID: 0}
   paddle: {fileID: 1652565879}
   ball_speed: 6.7
   ball_in_play: 0
@@ -9382,7 +9384,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 183f189a849341048acdbd6acd333c59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5445c12f6e09a8447ad234ba5a134b24, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
