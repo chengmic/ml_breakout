@@ -9,9 +9,12 @@ public class Ball : MonoBehaviour
     public float ball_speed = 6.7f;
     public bool ball_in_play = false;
 
+    private float ball_movement_reward_delay = 0.8f;
+    private float ball_movement_reward_timer;
     // Start is called before the first frame update
     void Start()
     {
+        ball_movement_reward_timer = ball_movement_reward_delay;
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
@@ -21,6 +24,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ball_movement_reward_timer -= Time.deltaTime;
         if (!ball_in_play)
         {
             // If ball is not in play, reset its position to ontop of the paddle
@@ -36,9 +40,10 @@ public class Ball : MonoBehaviour
         {
             // If ball is in play, check vertical speed. If ball is in motion, provide small reward
             float ball_vertical_velocity = rb.velocity.y;
-            if (ball_vertical_velocity != 0f)
+            if (ball_vertical_velocity != 0f && ball_movement_reward_timer<=0)
             {
                 paddle_agent.BallStillMoving();
+                ball_movement_reward_timer = ball_movement_reward_delay;
             }
         }
     }
