@@ -8,9 +8,9 @@ public class Ball : MonoBehaviour
     [SerializeField] private Transform paddle;
     public float ball_speed = 6.7f;
     public bool ball_in_play = false;
-
     private float ball_movement_reward_delay = 0.8f;
     private float ball_movement_reward_timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-        transform.position = paddle.position + new Vector3(0, 0.3f, 0);
+        transform.localPosition = paddle.localPosition + new Vector3(0, 0.3f, 0);
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class Ball : MonoBehaviour
         if (!ball_in_play)
         {
             // If ball is not in play, reset its position to ontop of the paddle
-            transform.position = paddle.position + new Vector3(0, 0.3f, 0);
+            transform.localPosition = paddle.localPosition + new Vector3(0, 0.3f, 0);
 
             if (Input.GetButtonDown("Jump"))
             {

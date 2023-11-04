@@ -314,6 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124507204}
+  - component: {fileID: 124507205}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -342,6 +343,20 @@ Transform:
   - {fileID: 352277832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124507205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124507203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06797a15cc28fce43b0fafb0becad9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 750203925}
+  agent: {fileID: 1261380401}
 --- !u!4 &153002216 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -546,6 +561,7 @@ MonoBehaviour:
   won_game_panel: {fileID: 0}
   total_bricks: 0
   bricks_remaining: 0
+  game_area: {fileID: 124507205}
 --- !u!4 &218426385
 Transform:
   m_ObjectHideFlags: 0
@@ -4019,7 +4035,7 @@ GameObject:
   - component: {fileID: 1261380402}
   - component: {fileID: 1261380401}
   m_Layer: 0
-  m_Name: movePaddleAgent
+  m_Name: MovePaddleAgent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
