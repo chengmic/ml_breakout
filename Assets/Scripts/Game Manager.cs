@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public int total_bricks = 0;
     public int bricks_remaining;
     public static string last_level_played;
-    private bool training = true;
+    private bool training = false;
     public GameArea game_area;
 
     // Start is called before the first frame update
