@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     public int total_bricks = 0;
     public int bricks_remaining;
     public static string last_level_played;
-    private bool training = false;
     public GameArea game_area;
 
     // Start is called before the first frame update
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
 
         if (bricks_remaining == 0) 
         {
-            if (training)
+            if (last_level_played == "ML Training")
             {
                 bricks_remaining = total_bricks;
                 game_area.ResetArea();
