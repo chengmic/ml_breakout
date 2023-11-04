@@ -22,8 +22,8 @@ public class MovePaddleAgent : Agent
         if (!is_game_over)
         {
             // Only add these observations if the game is not over
-            sensor.AddObservation((Vector2)transform.position);
-            sensor.AddObservation((Vector2)ball.transform.position);
+            sensor.AddObservation((Vector2)transform.localPosition);
+            sensor.AddObservation((Vector2)ball.transform.localPosition);
             sensor.AddObservation(ball.ball_in_play);
         }
         else
@@ -40,27 +40,27 @@ public class MovePaddleAgent : Agent
         // paddle movement
         float move_x = actions.ContinuousActions[0];
         int launch = actions.DiscreteActions[0];
-        float speed = 10f;
+        float speed = 20f;
 
-        transform.position += new Vector3(move_x, 0f) * Time.deltaTime * speed;
+        transform.localPosition += new Vector3(move_x, 0f) * Time.deltaTime * speed;
 
         // handles paddle boundaries without needing a rigidbody, can probably be cleaned up to be less lines
-        Vector3 new_position = transform.position;
+        Vector3 new_position = transform.localPosition;
         new_position.x = Mathf.Clamp(new_position.x, left_x_bound, right_x_bound);
-        transform.position = new_position;
+        transform.localPosition = new_position;
 
         // ball release
         if (launch == 1 && !ball.ball_in_play)
         {
             ball.Launch();
-            Debug.Log("launched ball");
             AddReward(2f);
+            Debug.Log("launched ball, +2");
         }
 
         if (!ball.ball_in_play)
         {
-            Debug.Log("held ball, -2");
-            AddReward(-2f);
+            AddReward(-0.5f);
+            Debug.Log("held ball, -0.5");
         }
     }
 
@@ -78,8 +78,8 @@ public class MovePaddleAgent : Agent
         // small reward when paddle hits ball
         if (collision.gameObject.CompareTag("Ball"))
         {
-            AddReward(5f);
-            Debug.Log("Paddle and ball collision +5");
+            AddReward(0.01f);
+            Debug.Log("Paddle and ball collision +0.01");
         }
     }
 
@@ -99,11 +99,12 @@ public class MovePaddleAgent : Agent
     {
         AddReward(20f);
         Debug.Log("Game Won, +20");
+        EndEpisode();
     }
 
     public void BallStillMoving()
     {
-        AddReward(0.2f);
-        Debug.Log("Ball Moving, +1");
+        AddReward(0.01f);
+        Debug.Log("Ball Moving, +0.01");
     }
 }

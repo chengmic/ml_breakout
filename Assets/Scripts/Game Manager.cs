@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI score_text;
     public GameObject lost_game_panel;
     public GameObject won_game_panel;
-    public int total_bricks;
+    public int total_bricks = 0;
     public int bricks_remaining;
     public static string last_level_played;
+    private bool training = true;
+    public GameArea game_area;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,9 @@ public class GameManager : MonoBehaviour
         DisplayLives();
 
         // track bricks in level
-        total_bricks = FindObjectsOfType<Brick>().Length;
+        //total_bricks = FindObjectsOfType<Brick>().Length;
+        total_bricks = game_area.TotalBricks();
+        //Debug.Log(total_bricks);
         bricks_remaining = total_bricks;
     }
 
@@ -43,7 +47,8 @@ public class GameManager : MonoBehaviour
     {
         lives_val += life_change;
 
-        if (lives_val <= 0) {
+        if (lives_val <= 0) 
+        {
             SceneManager.LoadScene("Game Over Screen");
         }
         
@@ -60,8 +65,17 @@ public class GameManager : MonoBehaviour
     {
         bricks_remaining -= 1;
 
-        if (bricks_remaining == 0) {
-            SceneManager.LoadScene("Win Screen");
+        if (bricks_remaining == 0) 
+        {
+            if (training)
+            {
+                bricks_remaining = total_bricks;
+                game_area.ResetArea();
+            }
+            else
+            {
+                SceneManager.LoadScene("Win Screen");
+            }
         }
     }
 

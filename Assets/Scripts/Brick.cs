@@ -24,12 +24,13 @@ public class Brick : MonoBehaviour
         // destory brick
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
             game_manager.ChangeScore(100);
+            paddle_agent.BallHitsBrick();
             game_manager.ReduceBrickCount();
 
-            paddle_agent.BallHitsBrick();
-            if (game_manager.bricks_remaining == 0){
+            if (game_manager.bricks_remaining == 0)
+            {
                 paddle_agent.GameWon();
             }
         }
