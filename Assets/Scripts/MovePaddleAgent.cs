@@ -21,10 +21,29 @@ public class MovePaddleAgent : Agent
     
         if (!is_game_over)
         {
+            // Current Ball and Paddle locations
+            Vector2 current_paddle_location = (Vector2)transform.localPosition;
+            Vector2 current_ball_Location = (Vector2)ball.transform.localPosition;
+            //Distance from paddle to ball
+            float distance_to_ball = Vector2.Distance(current_paddle_location, current_ball_Location);
+
+            //Direction of ball from paddle
+            Vector2 ball_direction_from_paddle_plus_distance = current_ball_Location - current_paddle_location;
+            Vector2 ball_direction_from_paddle = ball_direction_from_paddle_plus_distance.normalized; 
+
+            //Distance From Wall to Paddle
+            float paddle_distance_from_right_wall = current_paddle_location.x - right_x_bound;
+            float paddle_distance_from_left_wall = left_x_bound - current_paddle_location.x;
+
             // Only add these observations if the game is not over
-            sensor.AddObservation((Vector2)transform.localPosition);
-            sensor.AddObservation((Vector2)ball.transform.localPosition);
+            sensor.AddObservation(current_paddle_location);
+            sensor.AddObservation(current_ball_Location);
             sensor.AddObservation(ball.ball_in_play);
+            sensor.AddObservation(distance_to_ball);
+            sensor.AddObservation(ball_direction_from_paddle);
+            sensor.AddObservation(paddle_distance_from_right_wall);
+            sensor.AddObservation(paddle_distance_from_left_wall);
+
         }
         else
         {
@@ -32,6 +51,10 @@ public class MovePaddleAgent : Agent
             sensor.AddObservation(Vector2.zero); // Placeholder for paddle position
             sensor.AddObservation(Vector2.zero); // Placeholder for ball position
             sensor.AddObservation(false);        // Placeholder for ball_in_play
+            sensor.AddObservation(0f);          // Placeholder for distance from paddle to ball
+            sensor.AddObservation(Vector2.zero); // Placeholder for ball direction from paddle
+            sensor.AddObservation(0f); // Placeholder for distance from right wall
+            sensor.AddObservation(0f);        // Placeholder for distance from left wall
         }
     }
 
@@ -86,7 +109,7 @@ public class MovePaddleAgent : Agent
     public void BallBelowPaddle()
     {
         AddReward(-10f);
-        Debug.Log("Lowerbound hit, -10");
+        Debug.Log("Lowerbound hit, -20");
     }
 
     public void BallHitsBrick()
@@ -97,8 +120,8 @@ public class MovePaddleAgent : Agent
 
     public void GameWon()
     {
-        AddReward(20f);
-        Debug.Log("Game Won, +20");
+        AddReward(50f);
+        Debug.Log("Game Won, +70");
         EndEpisode();
     }
 
@@ -106,5 +129,10 @@ public class MovePaddleAgent : Agent
     {
         AddReward(0.01f);
         Debug.Log("Ball Moving, +0.01");
+    }
+
+    public void NoHorizontalMovementPunishment(){
+        AddReward(-10f);
+        Debug.Log("Lack of horizontal movement -10f");
     }
 }
