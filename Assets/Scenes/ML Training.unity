@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 1363481503}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -693,7 +693,7 @@ PrefabInstance:
       objectReference: {fileID: 2044206911}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 1403641310}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -1499,7 +1499,7 @@ PrefabInstance:
       objectReference: {fileID: 1230521990}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -2123,7 +2123,7 @@ PrefabInstance:
       objectReference: {fileID: 1203928460}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -2418,7 +2418,7 @@ PrefabInstance:
       objectReference: {fileID: 813196756}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -3724,7 +3724,7 @@ PrefabInstance:
       objectReference: {fileID: 2070855490}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -4166,7 +4166,7 @@ PrefabInstance:
       objectReference: {fileID: 757207349}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
@@ -4676,7 +4676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443226642850727195, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1489333774336150942, guid: 67c986e244911f84f8c86ba5e77d4993, type: 3}
       propertyPath: game_manager
