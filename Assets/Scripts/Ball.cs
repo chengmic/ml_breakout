@@ -10,11 +10,16 @@ public class Ball : MonoBehaviour
     public bool ball_in_play = false;
     private float ball_movement_reward_delay = 0.8f;
     private float ball_movement_reward_timer;
+    private float horizontal_location_check_timer;
+    float horizontal_location_check_timer_delay = 1f;
+    float check_horizontal_location; 
 
     // Start is called before the first frame update
     void Start()
     {
         ball_movement_reward_timer = ball_movement_reward_delay;
+        horizontal_location_check_timer = horizontal_location_check_timer_delay;
+        check_horizontal_location = transform.localPosition.x;
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
@@ -25,6 +30,8 @@ public class Ball : MonoBehaviour
     void Update()
     {
         ball_movement_reward_timer -= Time.deltaTime;
+        horizontal_location_check_timer -= Time.deltaTime;
+
         if (!ball_in_play)
         {
             // If ball is not in play, reset its position to ontop of the paddle
@@ -46,6 +53,21 @@ public class Ball : MonoBehaviour
                 ball_movement_reward_timer = ball_movement_reward_delay;
             }
         }
+
+        //Horizontal location
+
+        if (horizontal_location_check_timer <= 0){
+            float current_check_horizontal_location = transform.localPosition.x;
+
+            if (Mathf.Abs(current_check_horizontal_location - check_horizontal_location) <0.01f){
+                paddle_agent.NoHorizontalMovementPunishment();
+            }
+
+            horizontal_location_check_timer = horizontal_location_check_timer_delay;
+            check_horizontal_location = current_check_horizontal_location;
+
+        }
+
     }
 
     public void Launch()
@@ -72,3 +94,4 @@ public class Ball : MonoBehaviour
         }
     }
 }
+
