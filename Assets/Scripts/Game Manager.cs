@@ -12,15 +12,10 @@ public class GameManager : MonoBehaviour
     public GameObject won_game_panel;
     public int total_bricks = 0;
     public int bricks_remaining;
-    public static string last_level_played;
     public GameArea game_area;
 
-    // Start is called before the first frame update
     void Start()
     {
-        // grab current scene name to be used in "Play Again" button
-        last_level_played = SceneManager.GetActiveScene().name;
-
         // display score and lives
         DisplayScore();
         DisplayLives();
@@ -66,25 +61,8 @@ public class GameManager : MonoBehaviour
 
         if (bricks_remaining == 0) 
         {
-            if (last_level_played == "ML Training")
-            {
                 bricks_remaining = total_bricks;
                 game_area.ResetArea();
-            }
-            else
-            {
-                SceneManager.LoadScene("Win Screen");
-            }
         }
-    }
-
-    public void LoadLevel1()
-    {
-        SceneManager.LoadScene("Level 1");
-    }
-
-    public void GetCurrentScene()
-    {
-
     }
 }
