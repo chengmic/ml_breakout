@@ -21,13 +21,12 @@ public class CPUPaddle : Agent
 
     void Start()
     {
-        // compile model asset into a run-time model
         runtime_model = ModelLoader.Load(model_asset);
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharpBurst, runtime_model);
         output_layer_name = runtime_model.outputs[runtime_model.outputs.Count - 1];
     }
 
-    private void Update()
+    void Update()
     {
         var inputs = new Dictionary<string, Tensor>();
         inputs["obs_0"] = new Tensor(1, 1, 1, 10);
@@ -38,7 +37,6 @@ public class CPUPaddle : Agent
         Tensor O = worker.PeekOutput(output_layer_name);
         Debug.Log(O);
 
-        // dispose inputs
         inputs["obs_0"].Dispose();
         inputs["action_masks"].Dispose();
     }
