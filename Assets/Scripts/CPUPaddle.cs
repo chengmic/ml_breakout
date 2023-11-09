@@ -5,39 +5,41 @@ using Unity.MLAgents.Sensors;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 using Unity.Barracuda;
+using System;
+using Grpc.Core;
+using System.Collections.Generic;
+using System.Xml.Linq;
 
 public class CPUPaddle : Agent
 {
     public CPUBall ball;
     public CPUGameManager gm;
-    public float left_x_bound = -3.6f;
-    public float right_x_bound = 3.6f;
-    public NNModel modelAsset;
-    private Model m_RuntimeModel;
+    public NNModel model_asset;
+    private Model runtime_model;
+    private IWorker worker;
+    private string output_layer_name;
 
     void Start()
     {
-        m_RuntimeModel = ModelLoader.Load(modelAsset);
+        // compile model asset into a run-time model
+        runtime_model = ModelLoader.Load(model_asset);
+        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharpBurst, runtime_model);
+        output_layer_name = runtime_model.outputs[runtime_model.outputs.Count - 1];
     }
 
-    public override void OnActionReceived(ActionBuffers actions)
+    private void Update()
     {
-        // paddle movement
-        float move_x = actions.ContinuousActions[0];
-        int launch = actions.DiscreteActions[0];
-        float speed = 20f;
+        var inputs = new Dictionary<string, Tensor>();
+        inputs["obs_0"] = new Tensor(1, 1, 1, 10);
+        inputs["action_masks"] = new Tensor(1, 1, 1, 2);
 
-        transform.localPosition += new Vector3(move_x, 0f) * Time.deltaTime * speed;
+        worker.Execute(inputs);
 
-        // handles paddle boundaries without needing a rigidbody, can probably be cleaned up to be less lines
-        Vector3 new_position = transform.localPosition;
-        new_position.x = Mathf.Clamp(new_position.x, left_x_bound, right_x_bound);
-        transform.localPosition = new_position;
+        Tensor O = worker.PeekOutput(output_layer_name);
+        Debug.Log(O);
 
-        // ball release
-        if (launch == 1 && !ball.ball_in_play)
-        {
-            ball.Launch();
-        }
+        // dispose inputs
+        inputs["obs_0"].Dispose();
+        inputs["action_masks"].Dispose();
     }
 }

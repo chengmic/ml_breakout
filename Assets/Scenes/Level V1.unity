@@ -9422,7 +9422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 1522103622}
-  cpu_paddle: {fileID: 0}
+  cpu_paddle: {fileID: 1652565885}
 --- !u!1 &1606152408 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -10080,7 +10080,7 @@ MonoBehaviour:
   gm: {fileID: 1227768953}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  modelAsset: {fileID: 5022602860645237092, guid: 909d7cca40aa78145b0a2c2422a6f056, type: 3}
+  model_asset: {fileID: 5022602860645237092, guid: 909d7cca40aa78145b0a2c2422a6f056, type: 3}
 --- !u!1 &1666581388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
