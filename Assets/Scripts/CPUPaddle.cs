@@ -37,12 +37,28 @@ public class CPUPaddle : Agent
         Tensor discrete_actions = worker.PeekOutput("discrete_actions");
         Tensor continuous_actions = worker.PeekOutput("continuous_actions");
 
+        // use this to track the decision values the model is making
         // Debug.Log(discrete_actions[0]);
         // Debug.Log(continuous_actions[0]);
 
         inputs["obs_0"].Dispose();
         inputs["action_masks"].Dispose();
 
-        // TODO: MICHELLE WILL ADD ACTIONS HERE
+        // ball release
+        if (discrete_actions[0] == 1 && !ball.ball_in_play)
+        {
+            ball.Launch();
+        }
+
+        // paddle movement
+        float move_x = continuous_actions[0];
+        float speed = 10f;
+
+        Vector3 new_position = transform.position + new Vector3(move_x, 0f) * Time.deltaTime * speed;
+        new_position.x = Mathf.Clamp(new_position.x, left_x_bound, right_x_bound);
+        transform.position = new_position;
+
+        // use this to track the paddle position
+        // Debug.Log($"new_position.x: {new_position.x}");
     }
 }
