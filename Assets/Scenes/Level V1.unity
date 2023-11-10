@@ -10078,8 +10078,6 @@ MonoBehaviour:
   MaxStep: 0
   ball: {fileID: 1522103622}
   gm: {fileID: 1227768953}
-  left_x_bound: -3.6
-  right_x_bound: 3.6
   model_asset: {fileID: 5022602860645237092, guid: 909d7cca40aa78145b0a2c2422a6f056, type: 3}
 --- !u!1 &1666581388 stripped
 GameObject:
