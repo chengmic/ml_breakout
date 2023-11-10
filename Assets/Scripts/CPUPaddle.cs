@@ -15,6 +15,8 @@ public class CPUPaddle : Agent
 {
     public CPUBall ball;
     public CPUGameManager gm;
+    public float left_x_bound = -3.6f;
+    public float right_x_bound = 3.6f;
     public NNModel model_asset;
     private Model runtime_model;
     private IWorker worker;
@@ -35,10 +37,12 @@ public class CPUPaddle : Agent
         Tensor discrete_actions = worker.PeekOutput("discrete_actions");
         Tensor continuous_actions = worker.PeekOutput("continuous_actions");
 
-        Debug.Log(discrete_actions[0]);
-        Debug.Log(continuous_actions[0]);
+        // Debug.Log(discrete_actions[0]);
+        // Debug.Log(continuous_actions[0]);
 
         inputs["obs_0"].Dispose();
         inputs["action_masks"].Dispose();
+
+        // TODO: MICHELLE WILL ADD ACTIONS HERE
     }
 }
