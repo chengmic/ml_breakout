@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class CPUGameManager : MonoBehaviour
 {
     public int lives_val;
     public int score_val;
@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject won_game_panel;
     public int total_bricks = 0;
     public int bricks_remaining;
-    public GameArea game_area;
+    public CPUGameArea game_area;
 
     void Start()
     {
@@ -41,11 +41,12 @@ public class GameManager : MonoBehaviour
     {
         lives_val += life_change;
 
-        if (lives_val <= 0) 
+        // if CPU loses all lives, Player wins game
+        if (lives_val <= 0)
         {
-            SceneManager.LoadScene("Game Over Screen");
+            WinGame();
         }
-        
+
         DisplayLives();
     }
 
@@ -59,10 +60,21 @@ public class GameManager : MonoBehaviour
     {
         bricks_remaining -= 1;
 
-        if (bricks_remaining == 0) 
+        // if CPU destroys all brick, Player loses game
+        if (bricks_remaining == 0)
         {
-                bricks_remaining = total_bricks;
-                game_area.ResetArea();
+            bricks_remaining = total_bricks;
+            LoseGame();
         }
+    }
+
+    public void WinGame()
+    {
+        SceneManager.LoadScene("Win Screen");
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene("Game Over Screen");
     }
 }

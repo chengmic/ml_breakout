@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class NavigationManager : MonoBehaviour
 {
-    public int current_level_index;
-
     public void SinglePlayerStart()
     {
         SceneManager.LoadScene("Level 1");
@@ -17,7 +15,7 @@ public class NavigationManager : MonoBehaviour
 
     public void ReplayLevel()
     {
-        SceneManager.LoadScene($"{GameManager.last_level_played}"); 
+        SceneManager.LoadScene($"{SceneNameFetcher.last_level_played}"); 
     }
 
     public void GoToMainMenu()

@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class PlayerGameManager : MonoBehaviour
 {
     public int lives_val;
     public int score_val;
@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject won_game_panel;
     public int total_bricks = 0;
     public int bricks_remaining;
-    public GameArea game_area;
+    public PlayerGameArea player_game_area;
 
     void Start()
     {
@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
         DisplayLives();
 
         // track bricks in level
-        //total_bricks = FindObjectsOfType<Brick>().Length;
-        total_bricks = game_area.TotalBricks();
+        total_bricks = player_game_area.TotalBricks();
         //Debug.Log(total_bricks);
         bricks_remaining = total_bricks;
     }
@@ -40,12 +39,10 @@ public class GameManager : MonoBehaviour
     public void ChangeLives(int life_change)
     {
         lives_val += life_change;
-
-        if (lives_val <= 0) 
+        if (lives_val <= 0)
         {
-            SceneManager.LoadScene("Game Over Screen");
+            LoseGame();
         }
-        
         DisplayLives();
     }
 
@@ -58,11 +55,19 @@ public class GameManager : MonoBehaviour
     public void ReduceBrickCount()
     {
         bricks_remaining -= 1;
-
-        if (bricks_remaining == 0) 
+        if (bricks_remaining == 0)
         {
-                bricks_remaining = total_bricks;
-                game_area.ResetArea();
+            WinGame();
         }
+    }
+
+    public void WinGame()
+    {
+        SceneManager.LoadScene("Win Screen");
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene("Game Over Screen");
     }
 }

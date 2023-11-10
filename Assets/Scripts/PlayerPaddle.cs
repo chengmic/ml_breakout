@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Paddle : MonoBehaviour
+public class PlayerPaddle : MonoBehaviour
 {
     public float speed = 10;
     float horizontal_input;
@@ -8,12 +8,11 @@ public class Paddle : MonoBehaviour
     public float right_x_bound = 3.6f;
     float x_velocity;
     Vector3 direction;
-    public GameManager game_manager;
+    public PlayerGameManager player_game_manager;
 
-    // Update is called once per frame
     void Update() 
     {
-        if (game_manager.lives_val <= 0 || game_manager.bricks_remaining == 0) {
+        if (player_game_manager.lives_val <= 0 || player_game_manager.bricks_remaining == 0) {
             transform.position = new Vector3(0, transform.position.y, transform.position.z);
             return;
         }
