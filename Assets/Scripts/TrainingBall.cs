@@ -13,6 +13,11 @@ public class TrainingBall : MonoBehaviour
     float horizontal_location_check_timer_delay = 2f;
     float check_horizontal_location; 
 
+    public Vector3 original_ball_size;
+
+    public float large_ball_powerup_timer;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +27,11 @@ public class TrainingBall : MonoBehaviour
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
+        
         transform.localPosition = paddle.transform.localPosition + new Vector3(0, 0.3f, 0);
+
+        // Store base ball size
+        original_ball_size = transform.localScale;
     }
 
     // Update is called once per frame
@@ -65,12 +74,26 @@ public class TrainingBall : MonoBehaviour
             horizontal_location_check_timer = horizontal_location_check_timer_delay;
             check_horizontal_location = current_check_horizontal_location;
         }
+
+        if (large_ball_powerup_timer>0){
+            large_ball_powerup_timer -= Time.deltaTime;
+
+            if (large_ball_powerup_timer==0){
+                transform.localScale = original_ball_size;
+            }
+        }
+
     }
 
     public void Launch()
     {
         rb.velocity = Vector2.up * ball_speed;
         ball_in_play = true;
+    }
+
+    public void BigBallPowerup(){
+        transform.localScale = original_ball_size * 2;
+        large_ball_powerup_timer = 4f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
