@@ -36,6 +36,7 @@ public class PowerupScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Have the powerups fall downards at a specific speed after spawned in
         transform.Translate(0, -powerup_dropping_speed * Time.deltaTime, 0);
 
         
@@ -46,6 +47,8 @@ public class PowerupScript : MonoBehaviour
         if(collider.gameObject.CompareTag("Paddle")){
 
             Debug.Log("Powerup HIT");
+
+            // Specific checks for each type of powerup
 
             if (gameObject.tag == "BigBallPowerup"){
                 playerBall.BigBallPowerup();
