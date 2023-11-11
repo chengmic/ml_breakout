@@ -396,12 +396,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161429878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &171372496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -592,6 +595,7 @@ GameObject:
   m_Component:
   - component: {fileID: 218426385}
   - component: {fileID: 218426386}
+  - component: {fileID: 218426387}
   m_Layer: 0
   m_Name: Player Game Manager
   m_TagString: Untagged
@@ -635,6 +639,22 @@ MonoBehaviour:
   total_bricks: 0
   bricks_remaining: 0
   player_game_area: {fileID: 124507205}
+--- !u!114 &218426387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218426383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ad0f6b5a99d463b93dead9b94d8eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerup_dropping_speed: 0
+  playerGameManager: {fileID: 0}
+  playerBall: {fileID: 0}
+  belowPaddleSafe: 0
 --- !u!1001 &222717617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -732,12 +752,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138139395}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &281736127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,12 +1819,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407834157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &420262883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1904,12 +1930,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 132835106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &499394277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2092,12 +2121,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181212503}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2241,7 @@ GameObject:
   - component: {fileID: 529931953}
   m_Layer: 0
   m_Name: Paddle
-  m_TagString: Untagged
+  m_TagString: Paddle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2411,6 +2443,10 @@ PrefabInstance:
     - target: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -2650,12 +2686,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584864953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &634202907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2994,7 +3033,7 @@ GameObject:
   - component: {fileID: 750203925}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Ball
+  m_TagString: PlayerBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3141,9 +3180,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerupScript: {fileID: 1541169504}
   paddle: {fileID: 529931950}
   ball_speed: 5
   ball_in_play: 0
+  original_ball_size: {x: 0, y: 0, z: 0}
+  large_ball_powerup_timer: 4
+  belowPaddleSafe: 0
 --- !u!1 &764102028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -3156,12 +3199,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764102028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &764902664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -3227,12 +3273,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794070321}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &798594674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -3245,12 +3294,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725956808}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &800901339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3448,12 +3500,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885442367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &902750651 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -3466,12 +3521,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 902750651}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &905578274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -3484,12 +3542,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773766889}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &912914951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,12 +3601,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764902664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &931185556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3718,12 +3782,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968612142}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &970800423 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -3736,12 +3803,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970800423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &984909384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3929,12 +3999,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171372496}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1005478471
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,12 +4154,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158494980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1031023806
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,12 +4377,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739166451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1070420641 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4324,12 +4403,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673933162}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1124975860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4422,12 +4504,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296637480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1147277900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4440,12 +4525,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147277900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1216494390 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4519,6 +4607,10 @@ PrefabInstance:
     - target: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4620,12 +4712,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056803612}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1312879457 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4638,12 +4733,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312879457}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1320319296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -4661,12 +4759,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216494390}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1417135776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4815,6 +4916,10 @@ PrefabInstance:
     - target: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
       propertyPath: m_Name
       value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -5059,6 +5164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
     m_RemovedGameObjects: []
@@ -5203,12 +5312,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495012992}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1514786222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -5345,6 +5457,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1541169501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1541169503}
+  - component: {fileID: 1541169502}
+  - component: {fileID: 1541169504}
+  m_Layer: 0
+  m_Name: PowerupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1541169502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541169501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61f4321bf4272498894b0f7225cfce19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current_powerups: []
+--- !u!4 &1541169503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541169501}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.244755, y: -1.3999022, z: 0.025337182}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1541169504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541169501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82ad0f6b5a99d463b93dead9b94d8eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerup_dropping_speed: 0
+  playerGameManager: {fileID: 0}
+  playerBall: {fileID: 0}
+  belowPaddleSafe: 0
 --- !u!1001 &1625172892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5531,12 +5705,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627279963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1640870069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5639,12 +5816,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989868453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1678172318 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -5657,12 +5837,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678172318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1678234145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -5675,12 +5858,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641558911}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1709267546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -5801,12 +5987,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719585358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1729671746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5871,6 +6060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
     m_RemovedGameObjects: []
@@ -5892,12 +6085,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760036175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1782208184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6098,12 +6294,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842706953}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1894684453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6253,6 +6452,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
     m_RemovedGameObjects: []
@@ -6274,12 +6477,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924688844}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1946382528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6377,12 +6583,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949985005}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1964018027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -6395,12 +6604,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744717157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &1968555888
 GameObject:
   m_ObjectHideFlags: 0
@@ -6451,12 +6663,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983618458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &1996337449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6521,6 +6736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
+    - target: {fileID: 2352053762591432437, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
     m_RemovedGameObjects: []
@@ -6542,12 +6761,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536246896}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &1999010858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -6560,12 +6782,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644359000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1001 &2012170966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6748,12 +6973,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026370627}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &2044053963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -6766,12 +6994,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044053963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!4 &2061689550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 665893719290998105, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -6784,12 +7015,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514786222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &2104734580 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1485621043983910445, guid: e4a478b77b60963468b38c8510786e90, type: 3}
@@ -6802,12 +7036,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104734580}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f0a1b12937df394fad7cf2be7169291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player_game_manager: {fileID: 218426386}
+  powerups: []
+  selected_powerup_index: 0
+  powerupManager: {fileID: 0}
 --- !u!1 &2116588293
 GameObject:
   m_ObjectHideFlags: 0
@@ -7040,3 +7277,4 @@ SceneRoots:
   - {fileID: 1710869605}
   - {fileID: 1533627906}
   - {fileID: 568489549}
+  - {fileID: 1541169503}
