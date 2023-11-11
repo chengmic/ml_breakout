@@ -9,9 +9,12 @@ public class PlayerBall : MonoBehaviour
     [SerializeField] private Transform paddle;
     public float ball_speed = 5.0f;
     public bool ball_in_play = false;
+
+    // Variable to store original ball size
     public Vector3 original_ball_size;
     public float large_ball_powerup_timer;
 
+    // Counter for how many times ball is allowed to bounce off lower bound
     public int belowPaddleSafe=0;
 
 
@@ -41,6 +44,7 @@ public class PlayerBall : MonoBehaviour
                 Launch();
             }
         }
+        // Check if ball is under effect of powerup. Reduce timer for powerup.
 
         if (large_ball_powerup_timer>0){
             large_ball_powerup_timer -= Time.deltaTime;
@@ -67,7 +71,7 @@ public class PlayerBall : MonoBehaviour
         // when ball collides with lower bound, lose life and respawn ball at starting position
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
-            Debug.Log(powerupScript.belowPaddleSafe);
+            // Check if below paddle powerup is achieved. If so, remove its benefit after activaton.
             if(belowPaddleSafe>0){
                 belowPaddleSafe-=1;
                 
