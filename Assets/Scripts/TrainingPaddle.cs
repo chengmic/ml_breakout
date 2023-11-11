@@ -5,10 +5,10 @@ using Unity.MLAgents.Sensors;
 using Vector3 = UnityEngine.Vector3;
 using Vector2 = UnityEngine.Vector2;
 
-public class MovePaddleAgent : Agent
+public class TrainingPaddle : Agent
 {
-    public Ball ball;
-    public GameManager gm;
+    public TrainingBall ball;
+    public TrainingManager training_manager;
     public float left_x_bound = -3.6f;
     public float right_x_bound = 3.6f;
 
@@ -44,7 +44,7 @@ public class MovePaddleAgent : Agent
         // paddle movement
         float move_x = actions.ContinuousActions[0];
         int launch = actions.DiscreteActions[0];
-        float speed = 20f;
+        float speed = 10f;
 
         transform.localPosition += new Vector3(move_x, 0f) * Time.deltaTime * speed;
 
@@ -90,7 +90,7 @@ public class MovePaddleAgent : Agent
     public void BallBelowPaddle()
     {
         AddReward(-10f);
-        Debug.Log("Lowerbound hit, -20");
+        Debug.Log("Lowerbound hit, -10");
     }
 
     public void BallHitsBrick()
@@ -102,7 +102,7 @@ public class MovePaddleAgent : Agent
     public void GameWon()
     {
         AddReward(50f);
-        Debug.Log("Game Won, +70");
+        Debug.Log("Game Won, +50");
         EndEpisode();
     }
 

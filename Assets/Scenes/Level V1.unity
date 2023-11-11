@@ -8865,8 +8865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game_manager: {fileID: 1227768953}
-  cpu_paddle: {fileID: 0}
-  paddle: {fileID: 1652565879}
+  cpu_paddle: {fileID: 1652565885}
   ball_speed: 5
   ball_in_play: 0
 --- !u!1 &1547481574

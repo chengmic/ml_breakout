@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 5397737746683109557}
   - component: {fileID: 8478061279295015249}
   - component: {fileID: 1609482912075928665}
-  - component: {fileID: 7762823523559153658}
+  - component: {fileID: 3964548101244466507}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -467,7 +467,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7762823523559153658
+--- !u!114 &3964548101244466507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -479,10 +479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9ff7c240412724f85dd8f1325f26e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_manager: {fileID: 0}
-  paddle_agent: {fileID: 7067010099554868633}
-  paddle: {fileID: 6973488173885128294}
-  ball_speed: 6.7
+  training_manager: {fileID: 0}
+  paddle: {fileID: 0}
+  ball_speed: 5
   ball_in_play: 0
 --- !u!1 &3444900133135403351
 GameObject:
@@ -820,8 +819,8 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  ball: {fileID: 7762823523559153658}
-  gm: {fileID: 0}
+  ball: {fileID: 0}
+  training_manager: {fileID: 0}
   left_x_bound: -3.6
   right_x_bound: 3.6
 --- !u!114 &2183847630001556630
