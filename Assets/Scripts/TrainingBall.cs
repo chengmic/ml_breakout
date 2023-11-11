@@ -5,16 +5,24 @@ public class TrainingBall : MonoBehaviour
     Rigidbody2D rb;
     public TrainingManager training_manager;
     public TrainingPaddle paddle;
+
+    // Ball movement variables
     public float ball_speed = 5f;
     public bool ball_in_play = false;
     private float ball_movement_reward_delay = 0.8f;
     private float ball_movement_reward_timer;
-    private float horizontal_location_check_timer;
-    float horizontal_location_check_timer_delay = 2f;
-    float check_horizontal_location; 
 
+    // Ball x position variables
+    private float x_position_check_timer;
+    float x_position_check_timer_delay = 2f;
+    float check_x_position; 
+
+    // Stuck ball variables
+    float ball_stuck_timer = 30f;
+    float ball_stuck_check_timer;
+
+    // Powerup variables
     public Vector3 original_ball_size;
-
     public float large_ball_powerup_timer;
 
 
@@ -22,8 +30,10 @@ public class TrainingBall : MonoBehaviour
     void Start()
     {
         ball_movement_reward_timer = ball_movement_reward_delay;
-        horizontal_location_check_timer = horizontal_location_check_timer_delay;
-        check_horizontal_location = transform.localPosition.x;
+        x_position_check_timer = x_position_check_timer_delay;
+        ball_stuck_check_timer = ball_stuck_timer;
+        check_x_position = transform.localPosition.x;
+
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
@@ -38,7 +48,8 @@ public class TrainingBall : MonoBehaviour
     void Update()
     {
         ball_movement_reward_timer -= Time.deltaTime;
-        horizontal_location_check_timer -= Time.deltaTime;
+        x_position_check_timer -= Time.deltaTime;
+        ball_stuck_check_timer -= Time.deltaTime;
 
         if (!ball_in_play)
         {
@@ -55,34 +66,56 @@ public class TrainingBall : MonoBehaviour
         {
             // If ball is in play, check vertical speed. If ball is in motion, provide small reward
             float ball_vertical_velocity = rb.velocity.y;
-            if (ball_vertical_velocity != 0f && ball_movement_reward_timer<=0)
+            if (ball_vertical_velocity != 0f && ball_movement_reward_timer <= 0)
             {
                 paddle.BallStillMoving();
                 ball_movement_reward_timer = ball_movement_reward_delay;
             }
+            
+            // Resets ball if it starts to slow down too much
+            if (rb.velocity.magnitude <= 2.5f)
+            {
+                ball_in_play = false;
+            }
         }
 
         //Horizontal location
-        if (horizontal_location_check_timer <= 0){
-            float current_check_horizontal_location = transform.localPosition.x;
+        if (x_position_check_timer <= 0)
+        {
+            float current_check_x_position = transform.localPosition.x;
 
-            if (Mathf.Abs(current_check_horizontal_location - check_horizontal_location) < 0.01f)
+            if (Mathf.Abs(current_check_x_position - check_x_position) < 0.01f)
             {
                 paddle.NoHorizontalMovementPunishment();
             }
 
-            horizontal_location_check_timer = horizontal_location_check_timer_delay;
-            check_horizontal_location = current_check_horizontal_location;
+            x_position_check_timer = x_position_check_timer_delay;
+            check_x_position = current_check_x_position;
         }
 
-        if (large_ball_powerup_timer>0){
+        // Check if ball is stuck going up and down in corner
+        if (ball_stuck_check_timer <= 0)
+        {
+            float current_check_x_position = transform.localPosition.x;
+
+            if (Mathf.Abs(current_check_x_position - check_x_position) < 0.01f)
+            {
+                ball_in_play = false;
+            }
+
+            ball_stuck_check_timer = ball_stuck_timer;
+        }
+
+        // Powerup code
+        if (large_ball_powerup_timer > 0)
+        {
             large_ball_powerup_timer -= Time.deltaTime;
 
-            if (large_ball_powerup_timer==0){
+            if (large_ball_powerup_timer == 0)
+            {
                 transform.localScale = original_ball_size;
             }
         }
-
     }
 
     public void Launch()
@@ -91,6 +124,7 @@ public class TrainingBall : MonoBehaviour
         ball_in_play = true;
     }
 
+    // Powerup code
     public void BigBallPowerup(){
         transform.localScale = original_ball_size * 2;
         large_ball_powerup_timer = 4f;
