@@ -22,7 +22,6 @@ public class PlayerGameManager : MonoBehaviour
 
         // track bricks in level
         total_bricks = player_game_area.TotalBricks();
-        //Debug.Log(total_bricks);
         bricks_remaining = total_bricks;
     }
 

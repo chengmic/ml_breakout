@@ -3,8 +3,6 @@ THIS SCRIPT WILL BE USED ACROSS ALL LEVEL SCENES.
 IT SHOULD NOT HAVE ANY DEPENDENCIES.
 */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

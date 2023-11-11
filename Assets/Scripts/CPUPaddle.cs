@@ -1,15 +1,8 @@
 using UnityEngine;
 using Unity.MLAgents;
-using Unity.MLAgents.Actuators;
-using Unity.MLAgents.Sensors;
 using Vector3 = UnityEngine.Vector3;
-using Vector2 = UnityEngine.Vector2;
 using Unity.Barracuda;
-using System;
-using Grpc.Core;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using UnityEngine.UIElements;
 
 public class CPUPaddle : Agent
 {

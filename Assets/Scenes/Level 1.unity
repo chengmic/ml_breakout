@@ -6521,8 +6521,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Brick
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3190064948421818786, guid: e4a478b77b60963468b38c8510786e90, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

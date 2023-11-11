@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CPUGameArea : MonoBehaviour
 {
-    public CPUBall ball;
-    public CPUPaddle cpu_paddle;
-
     public int TotalBricks()
     {
         Transform[] all_children = gameObject.GetComponentsInChildren<Transform>(true);

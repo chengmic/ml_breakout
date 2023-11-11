@@ -5,9 +5,8 @@ public class PlayerBall : MonoBehaviour
     Rigidbody2D rb;
     public PlayerGameManager player_game_manager;
     [SerializeField] private Transform paddle;
-    public float ball_speed = 5.0f;
+    public float ball_speed = 5f;
     public bool ball_in_play = false;
-
 
     // Start is called before the first frame update
     void Start()

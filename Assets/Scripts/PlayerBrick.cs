@@ -4,10 +4,6 @@ public class PlayerBrick : MonoBehaviour
 {
     public PlayerGameManager player_game_manager;
 
-    void Start()
-    {
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // destory brick
