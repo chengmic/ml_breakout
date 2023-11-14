@@ -8957,8 +8957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2f0bad8590330479ba9d8f45397887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 1522103622}
-  cpu_paddle: {fileID: 1652565885}
 --- !u!1001 &1623529335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9551,7 +9549,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 909d7cca40aa78145b0a2c2422a6f056, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: ba358cb56912db4449fef7e001cc7e62, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 1
   m_BehaviorName: My Behavior
@@ -9579,7 +9577,7 @@ MonoBehaviour:
   gm: {fileID: 1227768953}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  model_asset: {fileID: 5022602860645237092, guid: 909d7cca40aa78145b0a2c2422a6f056, type: 3}
+  model_asset: {fileID: 5022602860645237092, guid: ba358cb56912db4449fef7e001cc7e62, type: 3}
 --- !u!1001 &1674420611
 PrefabInstance:
   m_ObjectHideFlags: 0
