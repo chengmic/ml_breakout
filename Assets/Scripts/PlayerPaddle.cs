@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerPaddle : MonoBehaviour
 {
-    public float speed = 10;
+    public float speed = 10f;
     float horizontal_input;
     public float left_x_bound = -3.6f;
     public float right_x_bound = 3.6f;

@@ -5,7 +5,6 @@ public class CPUBall : MonoBehaviour
     Rigidbody2D rb;
     public CPUGameManager game_manager;
     public CPUPaddle cpu_paddle;
-    [SerializeField] private Transform paddle;
     public float ball_speed = 5.0f;
     public bool ball_in_play = false;
 
@@ -14,7 +13,7 @@ public class CPUBall : MonoBehaviour
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
-        transform.localPosition = paddle.localPosition + new Vector3(0, 0.3f, 0);
+        transform.localPosition = cpu_paddle.transform.localPosition + new Vector3(0, 0.3f, 0);
     }
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class CPUBall : MonoBehaviour
         if (!ball_in_play)
         {
             // If ball is not in play, reset its position to ontop of the paddle
-            transform.localPosition = paddle.localPosition + new Vector3(0, 0.3f, 0);
+            transform.localPosition = cpu_paddle.transform.localPosition + new Vector3(0, 0.3f, 0);
         }
     }
 

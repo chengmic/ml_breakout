@@ -8,6 +8,12 @@ TagManager:
   - Brick
   - Lower Bound
   - Wall
+  - Paddle
+  - PlayerBall
+  - BigBallPowerup
+  - ExtraLifePowerup
+  - Powerup
+  - BelowPaddleSavePowerup
   layers:
   - Default
   - TransparentFX
