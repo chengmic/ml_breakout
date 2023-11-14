@@ -1,10 +1,9 @@
 using UnityEngine;
-using Unity.MLAgents;
 using Vector3 = UnityEngine.Vector3;
 using Unity.Barracuda;
 using System.Collections.Generic;
 
-public class CPUPaddle : Agent
+public class CPUPaddle : MonoBehaviour
 {
     public CPUBall ball;
     public CPUGameManager gm;
@@ -17,7 +16,7 @@ public class CPUPaddle : Agent
     void Start()
     {
         runtime_model = ModelLoader.Load(model_asset);
-        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharpBurst, runtime_model);
+        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharp, runtime_model);
     }
 
     void Update()
@@ -53,5 +52,6 @@ public class CPUPaddle : Agent
 
         // use this to track the paddle position
         // Debug.Log($"new_position.x: {new_position.x}");
+        // Debug.Log($"new_position.y: {new_position.y}");
     }
 }
