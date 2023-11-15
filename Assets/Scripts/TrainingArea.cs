@@ -25,7 +25,7 @@ public class TrainingArea : MonoBehaviour
     public void ResetArea()
     {
         agent.GameWon();
-        ball.transform.localPosition = agent.transform.localPosition + new Vector3(0, 0.3f, 0);
+        ball.ball_in_play = false;
 
         // get all children and reactivate the bricks
         Transform[] all_children = gameObject.GetComponentsInChildren<Transform>(true); 

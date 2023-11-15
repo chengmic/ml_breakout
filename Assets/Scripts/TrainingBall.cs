@@ -14,7 +14,7 @@ public class TrainingBall : MonoBehaviour
 
     // Ball x position variables
     private float x_position_check_timer;
-    float x_position_check_timer_delay = 2f;
+    float x_position_check_timer_delay = 5f;
     float check_x_position; 
 
     // Stuck ball variables
@@ -73,9 +73,10 @@ public class TrainingBall : MonoBehaviour
             }
             
             // Resets ball if it starts to slow down too much
-            if (rb.velocity.magnitude <= 2.5f)
+            if (rb.velocity.magnitude <= 3.5f)
             {
                 ball_in_play = false;
+                Debug.Log("ball was moving too slowly");
             }
         }
 
@@ -101,6 +102,7 @@ public class TrainingBall : MonoBehaviour
             if (Mathf.Abs(current_check_x_position - check_x_position) < 0.01f)
             {
                 ball_in_play = false;
+                Debug.Log("ball was too close to wall and got stuck");
             }
 
             ball_stuck_check_timer = ball_stuck_timer;

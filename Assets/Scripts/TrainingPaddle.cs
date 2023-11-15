@@ -8,15 +8,14 @@ using Vector2 = UnityEngine.Vector2;
 public class TrainingPaddle : Agent
 {
     public TrainingBall ball;
-    public TrainingManager training_manager;
     public float left_x_bound = -3.6f;
     public float right_x_bound = 3.6f;
 
     public override void CollectObservations(VectorSensor sensor)
     {
         // Current Ball and Paddle locations
-        Vector2 current_paddle_location = (Vector2)transform.localPosition;
-        Vector2 current_ball_Location = (Vector2)ball.transform.localPosition;
+        Vector2 current_paddle_location = transform.localPosition;
+        Vector2 current_ball_Location = ball.transform.localPosition;
         
         //Distance from paddle to ball
         float distance_to_ball = Vector2.Distance(current_paddle_location, current_ball_Location);
@@ -66,6 +65,12 @@ public class TrainingPaddle : Agent
             AddReward(-0.5f);
             Debug.Log("held ball, -0.5");
         }
+
+        if (StepCount == 6250)
+        {
+            Debug.Log("Reached end of episode");
+            EndEpisode();
+        }
     }
 
     // this is for when the user controls the paddle
@@ -112,7 +117,8 @@ public class TrainingPaddle : Agent
         Debug.Log("Ball Moving, +0.01");
     }
 
-    public void NoHorizontalMovementPunishment(){
+    public void NoHorizontalMovementPunishment()
+    {
         AddReward(-10f);
         Debug.Log("Lack of horizontal movement -10f");
     }
