@@ -25,6 +25,8 @@ public class TrainingBall : MonoBehaviour
     public Vector3 original_ball_size;
     public float large_ball_powerup_timer;
 
+    public Vector3 start_position;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class TrainingBall : MonoBehaviour
 
         // Store base ball size
         original_ball_size = transform.localScale;
+        start_position = transform.localPosition;
     }
 
     // Update is called once per frame
@@ -122,8 +125,21 @@ public class TrainingBall : MonoBehaviour
 
     public void Launch()
     {
-        rb.velocity = Vector2.up * ball_speed;
+        // Select angle of launch vector
+        Vector2 angle_of_launch = new Vector2(0.5f, 1.2f);
+
+        // Check if ball is left or right of spawn location
+        if (transform.localPosition.x > start_position.x)
+        {
+            // of to the right, launch to the left
+            angle_of_launch.x = -angle_of_launch.x;
+        }
+        // Only keep direction of vector
+        Vector2 launchDirection = angle_of_launch.normalized;
+
+        rb.velocity = launchDirection * ball_speed;
         ball_in_play = true;
+
     }
 
     // Powerup code
