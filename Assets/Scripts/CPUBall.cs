@@ -5,8 +5,9 @@ public class CPUBall : MonoBehaviour
     Rigidbody2D rb;
     public CPUGameManager game_manager;
     public CPUPaddle cpu_paddle;
-    public float ball_speed = 5.0f;
+    public float ball_speed = 5.5f;
     public bool ball_in_play = false;
+    Vector3 start_position;
 
     void Start()
     {
@@ -28,12 +29,24 @@ public class CPUBall : MonoBehaviour
 
     public void Launch()
     {
-        rb.velocity = Vector2.up * ball_speed;
+        // Select angle of launch vector
+        Vector2 angle_of_launch = new Vector2(0.1f, 1.2f);
+
+        // Check if ball is left or right of spawn location
+        if (transform.localPosition.x > start_position.x)
+        {
+            // if to the right, launch to the left
+            angle_of_launch.x = -angle_of_launch.x;
+        }
+        // Only keep direction of vector
+        Vector2 launch_direction = angle_of_launch.normalized;
+
+        rb.velocity = launch_direction * ball_speed;
         ball_in_play = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {     
         // when ball collides with lower bound, lose life and respawn ball at starting position
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
