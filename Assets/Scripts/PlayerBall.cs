@@ -7,7 +7,7 @@ public class PlayerBall : MonoBehaviour
 
     public PowerupScript powerupScript;
     [SerializeField] private Transform paddle;
-    public float ball_speed = 5f;
+    public float ball_speed = 5.5f;
     public bool ball_in_play = false;
 
     // Variable to store original ball size

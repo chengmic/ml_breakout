@@ -466,7 +466,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.51
 --- !u!114 &3964548101244466507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +483,7 @@ MonoBehaviour:
   paddle: {fileID: 0}
   ball_speed: 5
   ball_in_play: 0
+  start_position: {x: 0, y: 0, z: 0}
 --- !u!1 &3444900133135403351
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,8 +767,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.15, y: 0.51}
-      - {x: -0.15, y: 0.51}
+    - - {x: 0.05, y: 0.51}
+      - {x: -0.05, y: 0.51}
       - {x: -0.5, y: 0.18}
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
@@ -820,7 +821,6 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   ball: {fileID: 0}
-  training_manager: {fileID: 0}
   left_x_bound: -3.6
   right_x_bound: 3.6
 --- !u!114 &2183847630001556630
