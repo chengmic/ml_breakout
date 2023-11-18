@@ -2041,7 +2041,7 @@ MonoBehaviour:
   gm: {fileID: 1470094640}
   left_x_bound: -3.6
   right_x_bound: 3.6
-  model_asset: {fileID: 5022602860645237092, guid: ec7d130c642202d43bcd2743d91a7c0a, type: 3}
+  model_asset: {fileID: 5022602860645237092, guid: 330fed48a464bb542b990b1a44b28e98, type: 3}
 --- !u!1001 &520304516
 PrefabInstance:
   m_ObjectHideFlags: 0
