@@ -30,7 +30,7 @@ public class PlayerBrick : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerBall"))
         {
 
-          if (powerups.Count > 0 && Random.value <= 0.90f){
+          if (powerups.Count > 0 && Random.value <= 0.20f){
             selected_powerup_index = Random.Range(0, powerups.Count);
             GameObject newPowerup = Instantiate(powerups[selected_powerup_index],transform.position, transform.rotation);
             //powerupManager.newPowerupCreated(newPowerup);
