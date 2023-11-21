@@ -15311,7 +15311,7 @@ MonoBehaviour:
   gm: {fileID: 1470094640}
   left_x_bound: -4.77
   right_x_bound: 4.77
-  model_asset: {fileID: 5022602860645237092, guid: ec7d130c642202d43bcd2743d91a7c0a, type: 3}
+  model_asset: {fileID: 5022602860645237092, guid: 356c26d0ae3ddbe4db4962ace2c6ff90, type: 3}
 --- !u!60 &1774611605
 PolygonCollider2D:
   m_ObjectHideFlags: 0
