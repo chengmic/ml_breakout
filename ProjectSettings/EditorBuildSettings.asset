@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 8e99c1be140c46c45ac0907cc042495f
   - enabled: 1
+    path: Assets/Scenes/Single Player Level Select.unity
+    guid: 21271957da7f7504ea5b77c92323e621
+  - enabled: 1
+    path: Assets/Scenes/Versus Mode Select.unity
+    guid: 7fdd5eb730c94444fb262c84f6fb6675
+  - enabled: 1
+    path: Assets/Scenes/V Classic Level Select.unity
+    guid: d18773b6c43f04544b8353920ffeb51e
+  - enabled: 1
+    path: Assets/Scenes/V Multilevel Level Select.unity
+    guid: 709749557cc33fb409eddbd4aeb70524
+  - enabled: 1
     path: Assets/Scenes/Help Screen.unity
     guid: a60a27f7ef0fab94b99a624043382b5d
   - enabled: 1
@@ -20,6 +32,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 62272bd30899a4541a2ff2fc7805220f
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 68c4d9929d104f74f9004f12f8566bcc
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 0089dea0f3d1e4cd0b02e2f7d1da9e5b
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 6578f64d8292461448c7aa5579b4bbc3
   - enabled: 1
     path: Assets/Scenes/Level V1.unity
     guid: 4a33a9cde38e1b54883d1ed7fbfb2f5e

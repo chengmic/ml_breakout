@@ -462,7 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c02c6fb8fe23b43be8a4f01fca8246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevelIndex: 0
 --- !u!1 &696635960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,8 +1429,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 428307673}
-        m_TargetAssemblyTypeName: mainMenu, Assembly-CSharp
-        m_MethodName: SinglePlayerStart
+        m_TargetAssemblyTypeName: NavigationManager, Assembly-CSharp
+        m_MethodName: GoToSinglePlayerLevelSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

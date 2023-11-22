@@ -3,9 +3,49 @@ using UnityEngine.SceneManagement;
 
 public class NavigationManager : MonoBehaviour
 {
-    public void SinglePlayerStart()
+    public void GoToSinglePlayerLevelSelect()
+    {
+        SceneManager.LoadScene("Single Player Level Select");
+    }
+
+    public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
+    }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
+
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("Level 3");
+    }
+
+    public void LoadLevel4()
+    {
+        SceneManager.LoadScene("Level 4");
+    }
+
+    public void LoadLevelV1()
+    {
+        SceneManager.LoadScene("Level V1");
+    }
+
+    public void LoadLevelV2()
+    {
+        SceneManager.LoadScene("Level V2");
+    }
+
+    public void LoadLevelV3()
+    {
+        SceneManager.LoadScene("Level V3");
+    }
+
+    public void LoadLevelV4()
+    {
+        SceneManager.LoadScene("Level V4");
     }
 
     public void VersusModeStart()
