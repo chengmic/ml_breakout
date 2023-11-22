@@ -547,7 +547,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 428307673}
         m_TargetAssemblyTypeName: NavigationManager, Assembly-CSharp
-        m_MethodName: VersusModeStart
+        m_MethodName: GoToVersusModeSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -8,6 +8,21 @@ public class NavigationManager : MonoBehaviour
         SceneManager.LoadScene("Single Player Level Select");
     }
 
+    public void GoToVersusModeSelect()
+    {
+        SceneManager.LoadScene("Versus Mode Select");
+    }
+
+    public void GoToVersusClassicLevelSelect()
+    {
+        SceneManager.LoadScene("Versus Classic Level Select");
+    }
+
+    public void GoToVersusMultilevelLevelSelect()
+    {
+        SceneManager.LoadScene("Versus Multilevel Level Select");
+    }
+
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
