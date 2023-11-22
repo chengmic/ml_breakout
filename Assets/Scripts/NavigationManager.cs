@@ -133,6 +133,11 @@ public class NavigationManager : MonoBehaviour
         SceneManager.LoadScene($"{SceneNameFetcher.last_level_played}"); 
     }
 
+    public void PlayNextLevel()
+    {
+        SceneManager.LoadScene(SceneNameFetcher.next_scene_index);
+    }
+
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
