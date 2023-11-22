@@ -63,6 +63,66 @@ public class NavigationManager : MonoBehaviour
         SceneManager.LoadScene("Level V4");
     }
 
+    public void LoadMultilevel1_1()
+    {
+        SceneManager.LoadScene("Multilevel 1-1");
+    }
+
+    public void LoadMultilevel1_2()
+    {
+        SceneManager.LoadScene("Multilevel 1-2");
+    }
+
+    public void LoadMultilevel1_3()
+    {
+        SceneManager.LoadScene("Multilevel 1-3");
+    }
+
+    public void LoadMultilevel2_1()
+    {
+        SceneManager.LoadScene("Multilevel 2-1");
+    }
+
+    public void LoadMultilevel2_2()
+    {
+        SceneManager.LoadScene("Multilevel 2-2");
+    }
+
+    public void LoadMultilevel2_3()
+    {
+        SceneManager.LoadScene("Multilevel 2-3");
+    }
+
+    public void LoadMultilevel3_1()
+    {
+        SceneManager.LoadScene("Multilevel 3-1");
+    }
+
+    public void LoadMultilevel3_2()
+    {
+        SceneManager.LoadScene("Multilevel 3-2");
+    }
+
+    public void LoadMultilevel3_3()
+    {
+        SceneManager.LoadScene("Multilevel 3-3");
+    }
+
+    public void LoadMultilevel4_1()
+    {
+        SceneManager.LoadScene("Multilevel 4-1");
+    }
+
+    public void LoadMultilevel4_2()
+    {
+        SceneManager.LoadScene("Multilevel 4-2");
+    }
+
+    public void LoadMultilevel4_3()
+    {
+        SceneManager.LoadScene("Multilevel 4-3");
+    }
+
     public void VersusModeStart()
     {
         SceneManager.LoadScene("Level V1");
