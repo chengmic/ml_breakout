@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: c10e136348e454b9aa4b9b1114d9c933, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0c3f392a3d0188a40a97d7c9842778e9, type: 3}
+  m_Color: {r: 0.9716981, g: 0.1054201, b: 0.1054201, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   powerup_dropping_speed: 1
   playerGameManager: {fileID: 0}
   playerBall: {fileID: 0}
+  belowPaddleSafe: 0
 --- !u!50 &-5221759801132619946
 Rigidbody2D:
   serializedVersion: 4
@@ -164,8 +165,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.17, y: 1.17}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

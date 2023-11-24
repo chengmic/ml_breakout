@@ -35,6 +35,10 @@ public class PlayerGameManager : MonoBehaviour
         score_text.text = "Score: " + score_val;
     }
 
+    public void LifeIncreased(){
+        score_text.text = "Score: " + score_val + " + 1";
+    }
+
     public void ChangeLives(int life_change)
     {
         lives_val += life_change;
@@ -42,6 +46,7 @@ public class PlayerGameManager : MonoBehaviour
         {
             LoseGame();
         }
+        
         DisplayLives();
     }
 
