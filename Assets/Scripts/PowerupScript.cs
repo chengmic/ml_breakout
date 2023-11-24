@@ -7,6 +7,10 @@ public class PowerupScript : MonoBehaviour
     public float powerup_dropping_speed;
 
     public PlayerGameManager playerGameManager;
+
+     public GameObject lower_bound;
+
+    public  SpriteRenderer lower_bound_sprite_renderer;
     public PlayerBall playerBall;
 
     public int belowPaddleSafe;
@@ -26,6 +30,16 @@ public class PowerupScript : MonoBehaviour
             playerGameManager = FindObjectOfType<PlayerGameManager>();
         }
 
+        if (lower_bound == null)
+        {
+            GameObject lower_bound_holder = GameObject.FindGameObjectWithTag("Lower Bound");
+            lower_bound = lower_bound_holder;
+            if (lower_bound != null)
+            {
+                lower_bound_sprite_renderer = lower_bound.GetComponent<SpriteRenderer>();
+            }
+        }
+
         //if (powerupManager == null)
             //{
             //powerupManager = FindObjectOfType<PowerupManager>();
@@ -38,6 +52,13 @@ public class PowerupScript : MonoBehaviour
     {
         // Have the powerups fall downards at a specific speed after spawned in
         transform.Translate(0, -powerup_dropping_speed * Time.deltaTime, 0);
+
+        if (playerBall.belowPaddleSafe>=1){
+            lower_bound_sprite_renderer.enabled = true;
+        }
+        else{
+            lower_bound_sprite_renderer.enabled = false;
+        }
 
         
     }
