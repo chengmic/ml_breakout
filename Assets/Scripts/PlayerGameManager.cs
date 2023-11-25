@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class PlayerGameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerGameManager : MonoBehaviour
     public int total_bricks = 0;
     public int bricks_remaining;
     public PlayerGameArea player_game_area;
+
+    private float color_change_duration = 0.5f; // In seconds
 
     void Start()
     {
@@ -46,6 +49,13 @@ public class PlayerGameManager : MonoBehaviour
         {
             LoseGame();
         }
+
+        if (life_change <0){
+            StartCoroutine(ChangeTextColor(lives_text, Color.red));
+        }
+        else{
+            StartCoroutine(ChangeTextColor(lives_text, Color.green));
+        }
         
         DisplayLives();
     }
@@ -74,4 +84,16 @@ public class PlayerGameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game Over Screen");
     }
+
+    // Method used to chanage color of text in play screen. 
+    public IEnumerator ChangeTextColor(TextMeshProUGUI TextToChange, Color NewColor)
+    {
+        TextToChange.color = NewColor;
+
+        yield return new WaitForSeconds(color_change_duration);
+
+        TextToChange.color = Color.white;;
+
+    }
+
 }

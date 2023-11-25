@@ -26,7 +26,7 @@ public class PlayerBall : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         transform.localPosition = paddle.localPosition + new Vector3(0, 0.3f, 0);
-        //Record original ball size
+        //Record original ball size for large ball powerup
         original_ball_size = transform.localScale;
     }
 
@@ -63,7 +63,7 @@ public class PlayerBall : MonoBehaviour
 
     public void BigBallPowerup(){
         transform.localScale = original_ball_size * 3;
-        large_ball_powerup_timer = 4f;
+        large_ball_powerup_timer = 8f;
         }
 
     private void OnCollisionEnter2D(Collision2D collision)
