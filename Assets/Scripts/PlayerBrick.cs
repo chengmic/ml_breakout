@@ -8,18 +8,13 @@ public class PlayerBrick : MonoBehaviour
 
     public int selected_powerup_index;
 
-    public PowerupManager powerupManager;
+    private float powerup_spawn_probability = 0.3f; // Percentage
 
     void Start()
     {
         if (player_game_manager == null)
         {
             player_game_manager = FindObjectOfType<PlayerGameManager>();
-        }
-
-        if (powerupManager == null)
-            {
-            powerupManager = FindObjectOfType<PowerupManager>();
         }
         
     }
@@ -30,10 +25,9 @@ public class PlayerBrick : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerBall"))
         {
 
-          if (powerups.Count > 0 && Random.value <= 0.90f){
+          if (powerups.Count > 0 && Random.value <= powerup_spawn_probability){
             selected_powerup_index = Random.Range(0, powerups.Count);
             GameObject newPowerup = Instantiate(powerups[selected_powerup_index],transform.position, transform.rotation);
-            //powerupManager.newPowerupCreated(newPowerup);
             
             }
             gameObject.SetActive(false);
@@ -42,9 +36,5 @@ public class PlayerBrick : MonoBehaviour
 
   
         }
-    }
-
-    public void RandomPowerup(){
-
     }
 }

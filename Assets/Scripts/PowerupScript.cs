@@ -6,14 +6,14 @@ public class PowerupScript : MonoBehaviour
 {
     public float powerup_dropping_speed;
 
-    public PlayerGameManager playerGameManager;
+    public PlayerGameManager player_game_manager;
 
      public GameObject lower_bound;
 
     public  SpriteRenderer lower_bound_sprite_renderer;
-    public PlayerBall playerBall;
+    public PlayerBall player_ball;
 
-    public int belowPaddleSafe;
+    public int below_paddle_safe;
 
     //public PowerupManager powerupManager;
     // Start is called before the first frame update
@@ -22,12 +22,12 @@ public class PowerupScript : MonoBehaviour
     {
         GameObject playerBallObject = GameObject.FindGameObjectWithTag("PlayerBall"); 
         if (playerBallObject != null){
-            playerBall = playerBallObject.GetComponent<PlayerBall>();
+            player_ball = playerBallObject.GetComponent<PlayerBall>();
             }
 
-        if (playerGameManager == null)
+        if (player_game_manager == null)
             {
-            playerGameManager = FindObjectOfType<PlayerGameManager>();
+            player_game_manager = FindObjectOfType<PlayerGameManager>();
         }
 
         if (lower_bound == null)
@@ -53,7 +53,7 @@ public class PowerupScript : MonoBehaviour
         // Have the powerups fall downards at a specific speed after spawned in
         transform.Translate(0, -powerup_dropping_speed * Time.deltaTime, 0);
 
-        if (playerBall.belowPaddleSafe>=1){
+        if (player_ball.belowPaddleSafe>=1){
             lower_bound_sprite_renderer.enabled = true;
         }
         else{
@@ -72,15 +72,15 @@ public class PowerupScript : MonoBehaviour
             // Specific checks for each type of powerup
 
             if (gameObject.tag == "BigBallPowerup"){
-                playerBall.BigBallPowerup();
+                player_ball.BigBallPowerup();
             }
             if (gameObject.tag == "Powerup"){
-                playerGameManager.ChangeLives(1);
+                player_game_manager.ChangeLives(1);
             }
             if (gameObject.tag == "BelowPaddleSavePowerup"){
-                belowPaddleSafe +=1;
-                playerBall.belowPaddleSafe+=1;
-                Debug.Log(belowPaddleSafe);
+                below_paddle_safe +=1;
+                player_ball.belowPaddleSafe+=1;
+                Debug.Log(below_paddle_safe);
             }
             
             //powerupManager.Instance.powerupDeleted(this.gameObject);

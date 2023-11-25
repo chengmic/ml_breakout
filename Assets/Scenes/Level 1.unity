@@ -594,11 +594,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerup_dropping_speed: 0
-  playerGameManager: {fileID: 0}
+  player_game_manager: {fileID: 0}
   lower_bound: {fileID: 0}
   lower_bound_sprite_renderer: {fileID: 0}
-  playerBall: {fileID: 0}
-  belowPaddleSafe: 0
+  player_ball: {fileID: 0}
+  below_paddle_safe: 0
 --- !u!1001 &222717617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4822,7 +4822,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1541169503}
-  - component: {fileID: 1541169502}
   - component: {fileID: 1541169504}
   m_Layer: 0
   m_Name: PowerupManager
@@ -4831,19 +4830,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1541169502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1541169501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f4321bf4272498894b0f7225cfce19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  current_powerups: []
 --- !u!4 &1541169503
 Transform:
   m_ObjectHideFlags: 0
@@ -4872,11 +4858,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerup_dropping_speed: 0
-  playerGameManager: {fileID: 0}
+  player_game_manager: {fileID: 0}
   lower_bound: {fileID: 0}
   lower_bound_sprite_renderer: {fileID: 0}
-  playerBall: {fileID: 0}
-  belowPaddleSafe: 0
+  player_ball: {fileID: 0}
+  below_paddle_safe: 0
 --- !u!1001 &1625172892
 PrefabInstance:
   m_ObjectHideFlags: 0
