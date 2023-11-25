@@ -15,9 +15,6 @@ public class PowerupScript : MonoBehaviour
 
     public int below_paddle_safe;
 
-    //public PowerupManager powerupManager;
-    // Start is called before the first frame update
-
     void Start()
     {
         GameObject playerBallObject = GameObject.FindGameObjectWithTag("PlayerBall"); 
@@ -39,11 +36,6 @@ public class PowerupScript : MonoBehaviour
                 lower_bound_sprite_renderer = lower_bound.GetComponent<SpriteRenderer>();
             }
         }
-
-        //if (powerupManager == null)
-            //{
-            //powerupManager = FindObjectOfType<PowerupManager>();
-        //}
         
     }
 
@@ -83,7 +75,6 @@ public class PowerupScript : MonoBehaviour
                 Debug.Log(below_paddle_safe);
             }
             
-            //powerupManager.Instance.powerupDeleted(this.gameObject);
             Destroy(gameObject);
         }
 

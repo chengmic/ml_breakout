@@ -8,7 +8,7 @@ public class PlayerBrick : MonoBehaviour
 
     public int selected_powerup_index;
 
-    private float powerup_spawn_probability = 0.3f; // Percentage
+    private float powerup_spawn_probability = 0.20f; // Percentage
 
     void Start()
     {
