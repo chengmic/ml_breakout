@@ -14,6 +14,8 @@ public class CPUPaddle : MonoBehaviour
     private IWorker worker;
     public VPlayerBall player_ball_versus_script;
     public bool player_ball_launched = false;
+    public VPlayerBall player_ball_versus_script;
+    public bool player_ball_launched = false;
 
     void Start()
     {
@@ -27,6 +29,18 @@ public class CPUPaddle : MonoBehaviour
 
     void Update()
     {
+        if (!player_ball_launched)
+        {
+            // Ensure player_ball is not null to avoid NullReferenceException
+            if (player_ball_versus_script != null && player_ball_versus_script.ball_in_play)
+            {
+                player_ball_launched = true; // Set the flag to true as the player's ball is in play
+            }
+            else
+            {
+                return; // Skip the rest of the update if the player's ball hasn't been launched yet
+            }
+        }
         if (!player_ball_launched)
         {
             // Ensure player_ball is not null to avoid NullReferenceException
