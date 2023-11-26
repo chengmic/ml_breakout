@@ -75,7 +75,6 @@ public class TrainingPaddle : Agent
 
     // this is for when the user controls the paddle
     // in unity, click on paddle, look for behavior parameters under inspector, change behavior type to heuristic to control paddle
-    // can probably remove later, was added in when following tutorial
     public override void Heuristic(in ActionBuffers actions_out)
     {
         ActionSegment<float> continuous_actions = actions_out.ContinuousActions;

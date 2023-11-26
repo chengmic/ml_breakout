@@ -11,7 +11,6 @@ public class VPlayerBrick : MonoBehaviour
         {
             player_game_manager = FindObjectOfType<PlayerGameManager>();
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
