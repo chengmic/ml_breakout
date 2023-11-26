@@ -12,15 +12,34 @@ public class CPUPaddle : MonoBehaviour
     public NNModel model_asset;
     private Model runtime_model;
     private IWorker worker;
+    public VPlayerBall player_ball_versus_script;
+    public bool player_ball_launched = false;
 
     void Start()
     {
         runtime_model = ModelLoader.Load(model_asset);
         worker = WorkerFactory.CreateWorker(WorkerFactory.Type.CSharp, runtime_model);
+
+
+        GameObject player_ball_object = GameObject.FindGameObjectWithTag("PlayerBall");
+        player_ball_versus_script = player_ball_object.GetComponent<VPlayerBall>();
+
     }
 
     void Update()
     {
+        if (!player_ball_launched)
+        {
+            // Ensure player_ball is not null to avoid NullReferenceException
+            if (player_ball_versus_script != null && player_ball_versus_script.ball_in_play)
+            {
+                player_ball_launched = true; // Set the flag to true as the player's ball is in play
+            }
+            else
+            {
+                return; // Skip the rest of the update if the player's ball hasn't been launched yet
+            }
+        }
         // Current Ball and Paddle locations
         Vector2 current_paddle_location = transform.localPosition;
         Vector2 current_ball_Location = ball.transform.localPosition;
