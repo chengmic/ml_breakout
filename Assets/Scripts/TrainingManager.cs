@@ -9,6 +9,7 @@ public class TrainingManager : MonoBehaviour
     public TextMeshProUGUI lives_lost_text;
     public TextMeshProUGUI total_lives_lost_text;
     public TextMeshProUGUI games_won_text;
+    
     public int total_bricks = 0;
     public int bricks_remaining;
     public TrainingArea game_area;

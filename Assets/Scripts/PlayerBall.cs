@@ -5,7 +5,6 @@ public class PlayerBall : MonoBehaviour
     Rigidbody2D rb;
     public PlayerGameManager player_game_manager;
 
-    public PowerupScript powerupScript;
     [SerializeField] private Transform paddle;
     public float ball_speed = 5.5f;
     public bool ball_in_play = false;
@@ -15,13 +14,11 @@ public class PlayerBall : MonoBehaviour
     public float large_ball_powerup_timer;
 
     // Counter for how many times ball is allowed to bounce off lower bound
-    public int belowPaddleSafe=0;
-
+    public int below_paddle_safe = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
@@ -46,12 +43,14 @@ public class PlayerBall : MonoBehaviour
         }
         // Check if ball is under effect of powerup. Reduce timer for powerup.
 
-        if (large_ball_powerup_timer>0){
+        if (large_ball_powerup_timer > 0)
+        {
             large_ball_powerup_timer -= Time.deltaTime;
-            if (large_ball_powerup_timer<=0){
+            if (large_ball_powerup_timer <= 0)
+            {
                 transform.localScale = original_ball_size;
-                }
             }
+        }
     }
 
     public void Launch()
@@ -61,10 +60,11 @@ public class PlayerBall : MonoBehaviour
     }
 
 
-    public void BigBallPowerup(){
+    public void BigBallPowerup()
+    {
         transform.localScale = original_ball_size * 3;
         large_ball_powerup_timer = 8f;
-        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -72,22 +72,23 @@ public class PlayerBall : MonoBehaviour
         if (collision.gameObject.CompareTag("Lower Bound"))
         {
             // Check if below paddle powerup is achieved. If so, remove its benefit after activaton.
-            if(belowPaddleSafe>0){
-                belowPaddleSafe-=1;
+            if (below_paddle_safe > 0)
+            {
+                below_paddle_safe -= 1;
                 
             }
-            else{
-            player_game_manager.ChangeLives(-1);
-            if (player_game_manager.lives_val <= 0)
+            else
             {
-                rb.velocity = Vector2.zero;
-                return;
-            }
-            // Sets in play to false with resets the ball on top of the paddle
-            ball_in_play = false;
+                player_game_manager.ChangeLives(-1);
+                if (player_game_manager.lives_val <= 0)
+                {
+                    rb.velocity = Vector2.zero;
+                    return;
+                }
 
+                // Sets in play to false with resets the ball on top of the paddle
+                ball_in_play = false;
             }
-
         }
     }
 }

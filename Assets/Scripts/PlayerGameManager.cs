@@ -38,7 +38,8 @@ public class PlayerGameManager : MonoBehaviour
         score_text.text = "Score: " + score_val;
     }
 
-    public void LifeIncreased(){
+    public void LifeIncreased()
+    {
         score_text.text = "Score: " + score_val + " + 1";
     }
 
@@ -50,10 +51,12 @@ public class PlayerGameManager : MonoBehaviour
             LoseGame();
         }
 
-        if (life_change <0){
+        if (life_change < 0)
+        {
             StartCoroutine(ChangeTextColor(lives_text, Color.red));
         }
-        else{
+        else
+        {
             StartCoroutine(ChangeTextColor(lives_text, Color.green));
         }
         
@@ -93,7 +96,5 @@ public class PlayerGameManager : MonoBehaviour
         yield return new WaitForSeconds(color_change_duration);
 
         TextToChange.color = Color.white;;
-
     }
-
 }

@@ -12,7 +12,6 @@ public class VPlayerBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         // start ball on paddle
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
@@ -52,9 +51,9 @@ public class VPlayerBall : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 return;
             }
+            
             // Sets in play to false with resets the ball on top of the paddle
             ball_in_play = false;
-
         }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WinScreenManager : MonoBehaviour
@@ -24,11 +22,5 @@ public class WinScreenManager : MonoBehaviour
             // reset is_final_level
             SceneNameFetcher.is_final_level = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
