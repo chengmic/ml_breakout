@@ -21,7 +21,7 @@ public class SceneNameFetcher : MonoBehaviour
         next_scene_index = SceneManager.GetActiveScene().buildIndex + 1;
 
         // set is_final_level
-        if (last_level_played == "Level 4" || last_level_played == "Level V4" || last_level_played == "Multilevel 4-3" )
+        if (last_level_played is "Level 4" or "Level V4" or "Multilevel 1-3" or "Multilevel 2-3" or "Multilevel 3-3" or "Multilevel 4-3")
         { 
             is_final_level = true;
         }
